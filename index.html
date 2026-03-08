@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DaleSaúde | Excelência Médica na Tijuca</title>
+    <meta name="description" content="DaleSaúde: Clínica médica de excelência na Tijuca, Rio de Janeiro. Consultas, exames e check-ups com respeito e preço justo." />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS & Config -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+              serif: ['"Playfair Display"', 'serif'],
+            },
+            colors: {
+              dale: {
+                blue: '#002B49',  // Azul Principal
+                green: '#008F45', // Verde Secundário
+                light: '#E6F4EA', // Verde Claro
+                gold: '#FFD700',  // Dourado/Amarelo
+              },
+              sand: {
+                50: '#F9F9F7',
+                100: '#F0F0EB',
+                200: '#E2E2D9',
+              }
+            },
+            animation: {
+              'spin-slow': 'spin 8s linear infinite',
+              'marquee': 'marquee 40s linear infinite',
+              'marquee-slow': 'marquee 60s linear infinite',
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'shimmer': 'shimmer 2s linear infinite',
+              'border-flow': 'borderFlow 3s linear infinite',
+              'ring': 'ring 3s infinite',
+            },
+            keyframes: {
+              marquee: {
+                '0%': { transform: 'translateX(0%)' },
+                '100%': { transform: 'translateX(-50%)' },
+              },
+              shimmer: {
+                '0%': { backgroundPosition: '-200% 0' },
+                '100%': { backgroundPosition: '200% 0' },
+              },
+              borderFlow: {
+                '0%': { backgroundPosition: '0% 50%' },
+                '100%': { backgroundPosition: '200% 50%' },
+              },
+              ring: {
+                '0%, 100%': { transform: 'rotate(0deg)' },
+                '5%, 15%, 25%': { transform: 'rotate(10deg)' },
+                '10%, 20%, 30%': { transform: 'rotate(-10deg)' },
+                '35%': { transform: 'rotate(0deg)' },
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      body { background-color: #F9F9F7; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.575.0",
+    "framer-motion": "https://esm.sh/framer-motion@^12.34.3"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

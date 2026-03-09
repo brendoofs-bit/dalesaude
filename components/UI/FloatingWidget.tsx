@@ -33,11 +33,6 @@ const FloatingWidget: React.FC = () => {
             <span className="font-semibold text-sm tracking-wide">Agende sua Avaliação</span>
           </div>
         </div>
-
-        {/* Online Badge */}
-        <div className="absolute top-0 right-0 w-3.5 h-3.5 bg-green-400 border-2 border-white rounded-full z-20">
-          <span className="absolute inset-0 rounded-full bg-green-400 opacity-75 animate-ping"></span>
-        </div>
       </a>
 
       {/* Phone Widget */}
@@ -50,12 +45,9 @@ const FloatingWidget: React.FC = () => {
         className="group relative flex items-center justify-center h-16 rounded-full bg-gradient-to-r from-dale-gold to-yellow-500 text-dale-blue shadow-2xl hover:shadow-3xl transition-all duration-300"
         style={{ width: isHoveredPhone ? '180px' : '64px' }}
       >
-        {/* Elegant Pulse */}
-        <span className="absolute inset-0 rounded-full bg-dale-gold opacity-60 animate-ping" style={{ animationDuration: '3s' }}></span>
-
         <div className="relative z-10 flex items-center justify-center w-full h-full px-1">
           <div className="w-14 h-14 flex items-center justify-center shrink-0">
-            <Phone size={28} className="animate-ring" />
+            <Phone size={28} />
           </div>
 
           {/* Expanding Text */}

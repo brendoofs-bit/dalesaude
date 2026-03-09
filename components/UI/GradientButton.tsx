@@ -6,6 +6,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline';
   icon?: React.ReactNode;
   fullWidth?: boolean;
+  href?: string;
 }
 
 const GradientButton: React.FC<ButtonProps> = ({ 
@@ -14,36 +15,31 @@ const GradientButton: React.FC<ButtonProps> = ({
   className = '', 
   icon,
   fullWidth = false,
+  href,
   ...props 
 }) => {
-  const baseClasses = "relative overflow-hidden px-8 py-4 rounded-full font-bold tracking-wide transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2 group";
+  const baseClasses = "relative overflow-hidden !px-8 !py-4 !rounded-full !font-bold tracking-wide transition-all duration-300 transform hover:scale-105 active:scale-95 !inline-flex items-center justify-center gap-2 group !cursor-pointer !border-0";
   
   const variants = {
-    primary: "bg-gradient-to-r from-dale-green to-dale-blue text-white shadow-lg shadow-dale-green/30 border border-transparent",
-    secondary: "bg-dale-gold text-dale-blue shadow-lg shadow-dale-gold/30 border border-transparent",
-    outline: "bg-transparent border-2 border-dale-green text-dale-green hover:bg-dale-green hover:text-white"
+    primary: "!bg-gradient-to-r from-dale-green to-teal-500 !text-white shadow-lg",
+    secondary: "!bg-gradient-to-r from-dale-gold to-yellow-500 !text-dale-blue shadow-lg",
+    outline: "!bg-transparent !border-2 !border-solid !border-dale-green !text-dale-green hover:!bg-dale-green hover:!text-white"
   };
 
+  const Component = href ? 'a' : 'button';
+
   return (
-    <button 
-      className={`${baseClasses} ${variants[variant]} ${fullWidth ? 'w-full' : ''} ${className}`}
-      {...props}
+    <Component 
+      href={href}
+      className={`${baseClasses} ${variants[variant]} ${fullWidth ? '!w-full' : ''} ${className}`}
+      style={{ textDecoration: 'none' }}
+      {...(props as any)}
     >
-      {/* Shine effect container */}
-      {variant !== 'outline' && (
-        <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent z-0" />
-      )}
-      
       <span className="relative z-10 flex items-center gap-2">
         {children}
         {icon && <span className="group-hover:translate-x-1 transition-transform">{icon}</span>}
       </span>
-      
-      {/* Border glow for primary */}
-      {variant === 'primary' && (
-         <div className="absolute inset-0 rounded-full border border-white/20 pointer-events-none" />
-      )}
-    </button>
+    </Component>
   );
 };
 

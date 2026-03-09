@@ -105,17 +105,29 @@ const ServicesTabs: React.FC = () => {
           </motion.div>
         )}
 
+        {activeTab !== 'checkup' && (
+          <div className="flex justify-center mb-12">
+            <a 
+              href={activeTab === 'specialty' ? '/consultas' : '/ultrassonografias'}
+              className="text-dale-blue hover:text-dale-green font-bold flex items-center gap-2 transition-colors text-lg"
+            >
+              Ver todos os serviços <ArrowRight size={20} />
+            </a>
+          </div>
+        )}
+
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <GradientButton 
             variant="primary" 
-            onClick={() => window.location.href = `tel:${PHONE_NUMBER.replace(/\D/g,'')}`}
+            href={`tel:${PHONE_NUMBER.replace(/\D/g,'')}`}
             icon={<Phone size={20} />}
           >
             Ligar Agora
           </GradientButton>
           <GradientButton 
             variant="outline" 
-            onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Gostaria%20de%20agendar%20uma%20consulta`, '_blank')}
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=Gostaria%20de%20agendar%20uma%20consulta`}
+            target="_blank"
             icon={<MessageCircle size={20} />}
           >
             Falar no WhatsApp

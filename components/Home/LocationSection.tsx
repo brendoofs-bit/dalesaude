@@ -38,14 +38,15 @@ const LocationSection: React.FC = () => {
             <div className="mt-10 flex flex-col gap-3">
                <GradientButton 
                  fullWidth 
-                 onClick={() => window.open(ADDRESS_LINK, '_blank')}
+                 href={ADDRESS_LINK}
+                 target="_blank"
                >
                  Como Chegar
                </GradientButton>
                <GradientButton 
                  variant="primary"
                  fullWidth 
-                 onClick={() => window.location.href = `tel:${PHONE_NUMBER.replace(/\D/g,'')}`}
+                 href={`tel:${PHONE_NUMBER.replace(/\D/g,'')}`}
                  icon={<Phone size={20} />}
                >
                  Ligar Agora
@@ -53,7 +54,8 @@ const LocationSection: React.FC = () => {
                <GradientButton 
                  variant="outline"
                  fullWidth 
-                 onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Gostaria%20de%20agendar%20uma%20consulta`, '_blank')}
+                 href={`https://wa.me/${WHATSAPP_NUMBER}?text=Gostaria%20de%20agendar%20uma%20consulta`}
+                 target="_blank"
                  icon={<MessageCircle size={20} />}
                >
                  WhatsApp

@@ -1,28 +1,35 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Layout/Header';
+import Hero from './components/Home/Hero';
+import ImageMarquee from './components/Home/ImageMarquee';
+import ServicesTabs from './components/Home/ServicesTabs';
+import ValuesMarquee from './components/Home/ValuesMarquee';
+import DaleIndicaSection from './components/Home/DaleIndicaSection';
+import DalePlusTeaser from './components/Home/DalePlusTeaser';
+import AboutSection from './components/Home/AboutSection';
+import ReviewsSection from './components/Home/ReviewsSection';
+import LocationSection from './components/Home/LocationSection';
 import Footer from './components/Layout/Footer';
 import FloatingWidget from './components/UI/FloatingWidget';
-import Home from './pages/Home';
-import Consultas from './pages/Consultas';
-import Ultrassonografias from './pages/Ultrassonografias';
-import SobreNos from './pages/SobreNos';
 
 function App() {
   return (
-    <Router>
-      <div className="font-sans text-gray-800 bg-sand-50 selection:bg-dale-green selection:text-white">
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/consultas" element={<Consultas />} />
-          <Route path="/ultrassonografias" element={<Ultrassonografias />} />
-          <Route path="/sobre-nos" element={<SobreNos />} />
-        </Routes>
-        <Footer />
-        <FloatingWidget />
-      </div>
-    </Router>
+    <div className="font-sans text-gray-800 bg-sand-50 selection:bg-dale-green selection:text-white">
+      <Header />
+      <main>
+        <Hero />
+        <ImageMarquee />
+        <ServicesTabs />
+        <ValuesMarquee />
+        <DaleIndicaSection />
+        <DalePlusTeaser />
+        <AboutSection />
+        <ReviewsSection />
+        <LocationSection />
+      </main>
+      <Footer />
+      <FloatingWidget />
+    </div>
   );
 }
 

@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from '../components/Home/Hero';
 import ImageMarquee from '../components/Home/ImageMarquee';
 import ServicesTabs from '../components/Home/ServicesTabs';
+import DaleIndicaSection from '../components/Home/DaleIndicaSection';
 import DalePlusTeaser from '../components/Home/DalePlusTeaser';
 import AboutSection from '../components/Home/AboutSection';
 import ReviewsSection from '../components/Home/ReviewsSection';
@@ -15,6 +16,7 @@ const Home: React.FC = () => {
       <ImageMarquee />
       <ServicesTabs />
       <ValuesMarquee />
+      <DaleIndicaSection />
       <DalePlusTeaser />
       <AboutSection />
       <ReviewsSection />

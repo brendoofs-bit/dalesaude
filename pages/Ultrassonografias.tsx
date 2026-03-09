@@ -131,7 +131,7 @@ const Ultrassonografias: React.FC = () => {
             </div>
             <div className="w-full md:w-1/2 h-64 md:h-auto absolute md:relative right-0 bottom-0 opacity-20 md:opacity-100">
               <img 
-                src="https://res.cloudinary.com/doqw5aqcf/image/upload/v1768056150/vista-frontal-sorridente-medica-e-paciente_htvir7.jpg" 
+                src="https://res.cloudinary.com/doqw5aqcf/image/upload/v1773062746/consultora-atendendo-cliente-escritorio-jpg_hifl1y.webp" 
                 alt="Médicos DaleSaúde" 
                 className="w-full h-full object-cover rounded-2xl"
                 style={{ maskImage: 'linear-gradient(to right, transparent, black 20%)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 20%)' }}

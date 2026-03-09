@@ -34,7 +34,7 @@ const SobreNos: React.FC = () => {
           {/* Mission */}
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="w-full md:w-1/2 rounded-3xl overflow-hidden shadow-lg">
-              <img src="https://res.cloudinary.com/doqw5aqcf/image/upload/v1768056150/vista-frontal-sorridente-medica-e-paciente_htvir7.jpg" alt="Nossa missão" className="w-full h-full object-cover aspect-[4/3]" />
+              <img src="https://res.cloudinary.com/doqw5aqcf/image/upload/v1773062927/medica-conversando-pacientes-consultorio-jpg_pplvsl.webp" alt="Nossa missão" className="w-full h-full object-cover aspect-[4/3]" />
             </div>
             <div className="w-full md:w-1/2">
               <h2 className="text-3xl md:text-4xl font-serif text-dale-blue mb-6">Nossa missão</h2>
@@ -53,7 +53,7 @@ const SobreNos: React.FC = () => {
           {/* Vision */}
           <div className="flex flex-col md:flex-row-reverse items-center gap-12">
             <div className="w-full md:w-1/2 rounded-3xl overflow-hidden shadow-lg">
-              <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop" alt="Nossa visão" className="w-full h-full object-cover aspect-[4/3]" />
+              <img src="https://res.cloudinary.com/doqw5aqcf/image/upload/v1771425465/01_mxjnjj.webp" alt="Nossa visão" className="w-full h-full object-cover aspect-[4/3]" />
             </div>
             <div className="w-full md:w-1/2">
               <h2 className="text-3xl md:text-4xl font-serif text-dale-blue mb-6">Nossa visão</h2>
@@ -125,7 +125,7 @@ const SobreNos: React.FC = () => {
             </div>
             <div className="w-full md:w-1/2 h-64 md:h-auto absolute md:relative right-0 bottom-0 opacity-20 md:opacity-100">
               <img 
-                src="https://res.cloudinary.com/doqw5aqcf/image/upload/v1768056150/vista-frontal-sorridente-medica-e-paciente_htvir7.jpg" 
+                src="https://res.cloudinary.com/doqw5aqcf/image/upload/v1773063469/medica-entregando-resultados-exames-paciente-consultorio-jpg_zdgren.webp" 
                 alt="Médicos DaleSaúde" 
                 className="w-full h-full object-cover rounded-2xl"
                 style={{ maskImage: 'linear-gradient(to right, transparent, black 20%)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 20%)' }}

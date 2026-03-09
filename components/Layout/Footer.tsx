@@ -35,7 +35,8 @@ const Footer: React.FC = () => {
           <div className="space-y-6">
             <img src={IMAGES.logo} alt="DaleSaúde" className="h-12" />
             <p className="text-gray-400 leading-relaxed text-sm">
-              Tradição e tecnologia unidas para oferecer o melhor em cuidados médicos na Tijuca. Sua saúde merece excelência e respeito.
+              Clínica com Infraestrutura moderna, excelentes médicos, ótimas avaliações e preço justo na Tijuca.<br />
+              Saúde de qualidade, sem desperdício de tempo.
             </p>
             <div className="flex gap-4">
               <a href="https://www.instagram.com/dalesaude" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-dale-green transition-colors duration-300">

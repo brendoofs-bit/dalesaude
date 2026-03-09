@@ -41,7 +41,7 @@ const WhyChooseUs: React.FC = () => {
               </p>
             </div>
             <div className="w-full md:w-1/3 h-48 rounded-2xl overflow-hidden shrink-0">
-              <img src="https://res.cloudinary.com/doqw5aqcf/image/upload/v1768056150/vista-frontal-sorridente-medica-e-paciente_htvir7.jpg" alt="Atendimento" className="w-full h-full object-cover" />
+              <img src="https://res.cloudinary.com/doqw5aqcf/image/upload/v1773062573/paciente-no-consulta-ortopedica-com-goela-cervical-jpg_up3dsw.webp" alt="Atendimento" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>

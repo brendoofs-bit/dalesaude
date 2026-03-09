@@ -72,48 +72,48 @@ const ServicesTabs: React.FC = () => {
             </p>
           </motion.div>
         ) : (
-          <motion.div 
-            layout
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
-          >
-            <AnimatePresence mode='popLayout'>
-              {filteredServices.map((service) => (
-                <motion.div
-                  key={service.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3 }}
-                  className="group relative p-8 bg-sand-50 rounded-3xl border border-transparent hover:border-dale-green/20 hover:shadow-xl transition-all duration-300"
-                >
-                  <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
-                     {/* Decorative icon based on tab */}
-                     {activeTab === 'specialty' ? <Activity size={48} className="text-dale-green" /> : 
-                      activeTab === 'ultrasound' ? <Scan size={48} className="text-dale-green" /> :
-                      <ClipboardCheck size={48} className="text-dale-green" />}
-                  </div>
-                  <h3 className="text-xl font-bold text-dale-blue mb-2 group-hover:text-dale-green transition-colors">
-                    {service.name}
-                  </h3>
-                  <p className="text-gray-500 text-sm">
-                    Agende sua consulta ou exame com especialistas qualificados.
-                  </p>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
-        )}
-
-        {activeTab !== 'checkup' && (
-          <div className="flex justify-center mb-12">
-            <a 
-              href={activeTab === 'specialty' ? '/consultas' : '/ultrassonografias'}
-              className="text-dale-blue hover:text-dale-green font-bold flex items-center gap-2 transition-colors text-lg"
+          <>
+            <motion.div 
+              layout
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8"
             >
-              Ver todos os serviços <ArrowRight size={20} />
-            </a>
-          </div>
+              <AnimatePresence mode='popLayout'>
+                {filteredServices.map((service) => (
+                  <motion.div
+                    key={service.id}
+                    layout
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.3 }}
+                    className="group relative p-8 bg-sand-50 rounded-3xl border border-transparent hover:border-dale-green/20 hover:shadow-xl transition-all duration-300"
+                  >
+                    <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+                       {/* Decorative icon based on tab */}
+                       {activeTab === 'specialty' ? <Activity size={48} className="text-dale-green" /> : 
+                        activeTab === 'ultrasound' ? <Scan size={48} className="text-dale-green" /> :
+                        <ClipboardCheck size={48} className="text-dale-green" />}
+                    </div>
+                    <h3 className="text-xl font-bold text-dale-blue mb-2 group-hover:text-dale-green transition-colors">
+                      {service.name}
+                    </h3>
+                    <p className="text-gray-500 text-sm">
+                      Agende sua consulta ou exame com especialistas qualificados.
+                    </p>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </motion.div>
+            <div className="flex justify-center mb-12">
+              <a 
+                href={activeTab === 'specialty' ? '/consultas' : '/ultrassonografias'} 
+                className="inline-flex items-center gap-2 text-dale-green font-semibold hover:text-dale-blue transition-colors"
+              >
+                Veja mais {activeTab === 'specialty' ? 'especialidades' : 'ultrassonografias'}
+                <ArrowRight size={18} />
+              </a>
+            </div>
+          </>
         )}
 
         <div className="flex flex-col sm:flex-row justify-center gap-4">

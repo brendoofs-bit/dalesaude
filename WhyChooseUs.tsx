@@ -24,7 +24,7 @@ const WhyChooseUs: React.FC = () => {
           <div className="bg-sand-50 p-8 rounded-3xl border border-sand-200">
             <h3 className="text-xl font-bold text-dale-blue mb-4">Nota 4.9 no Google</h3>
             <p className="text-gray-600 leading-relaxed">
-              Mais de 1.000 pacientes já avaliaram a DaleSaúde com 4.9 estrelas no Google. Cada avaliação representa uma experiência de cuidado, acolhimento e excelência. Somos reconhecidos por quem mais importa: nossos pacientes.
+              Mais de 800 pacientes já avaliaram a DaleSaúde com 4.9 estrelas no Google. Cada avaliação representa uma experiência de cuidado, acolhimento e excelência. Somos reconhecidos por quem mais importa: nossos pacientes.
             </p>
           </div>
           <div className="bg-sand-50 p-8 rounded-3xl border border-sand-200">

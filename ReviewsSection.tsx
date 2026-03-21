@@ -35,7 +35,7 @@ const ReviewsSection: React.FC = () => {
            </div>
            <h2 className="text-3xl font-serif text-dale-blue mb-2">Nossas Avaliações</h2>
            <p className="text-gray-500 text-sm">
-             São mais de 1.000 avaliações com nota 4.9 de 5.0!
+             São mais de 800 avaliações com nota 4.9 de 5.0!
            </p>
         </div>
 

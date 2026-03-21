@@ -20,14 +20,12 @@ const ImageMarquee: React.FC = () => {
         {[...MARQUEE_IMAGES, ...MARQUEE_IMAGES, ...MARQUEE_IMAGES, ...MARQUEE_IMAGES].map((src, index) => (
           <div 
             key={index} 
-            className="w-[250px] h-[180px] md:w-[350px] md:h-[220px] flex-shrink-0 rounded-2xl overflow-hidden shadow-lg transform transition-transform hover:scale-105 duration-500"
-            style={{ width: '350px', height: '220px', maxWidth: '100%' }}
+            className="w-[300px] h-[200px] md:w-[400px] md:h-[250px] flex-shrink-0 rounded-2xl overflow-hidden shadow-lg transform transition-transform hover:scale-105 duration-500"
           >
             <img 
               src={src} 
               alt={`Galeria DaleSaúde ${index}`} 
-              className="!w-full !h-full object-cover"
-              style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+              className="w-full h-full object-cover"
             />
           </div>
         ))}

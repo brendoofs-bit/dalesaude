@@ -113,7 +113,7 @@ const SobreNos: React.FC = () => {
                 É hora de dar <span className="italic text-dale-green">atenção</span> à sua saúde com quem realmente se importa.
               </h2>
               <p className="text-gray-600 mb-8 max-w-lg leading-relaxed">
-                Na DaleSaúde, você encontra o equilíbrio entre cuidado, agilidade e qualidade. Com uma equipe dedicada, estrutura moderna e mais de 1.000 avaliações positivas, oferecemos uma experiência acolhedora, resolutiva e acessível — para que cuidar da saúde seja fácil, seguro e sem complicações.
+                Na DaleSaúde, você encontra o equilíbrio entre cuidado, agilidade e qualidade. Com uma equipe dedicada, estrutura moderna e mais de 800 avaliações positivas, oferecemos uma experiência acolhedora, resolutiva e acessível — para que cuidar da saúde seja fácil, seguro e sem complicações.
               </p>
               <GradientButton 
                 variant="outline" 

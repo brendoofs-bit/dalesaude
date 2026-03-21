@@ -37,8 +37,7 @@ const DalePlusTeaser: React.FC = () => {
             </p>
             <GradientButton 
               variant="secondary"
-              href={`https://wa.me/${WHATSAPP_NUMBER}?text=Gostaria%20de%20saber%20mais%20sobre%20o%20Dale+`}
-              target="_blank"
+              onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Gostaria%20de%20saber%20mais%20sobre%20o%20Dale+`, '_blank')}
             >
               Entrar na Lista de Espera
             </GradientButton>

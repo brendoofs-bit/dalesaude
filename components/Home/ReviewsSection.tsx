@@ -35,7 +35,7 @@ const ReviewsSection: React.FC = () => {
            </div>
            <h2 className="text-3xl font-serif text-dale-blue mb-2">Nossas Avaliações</h2>
            <p className="text-gray-500 text-sm">
-             São mais de 1.000 avaliações com nota 4.9 de 5.0!
+             São mais de 800 avaliações com nota 4.9 de 5.0!
            </p>
         </div>
 
@@ -104,15 +104,14 @@ const ReviewsSection: React.FC = () => {
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <GradientButton 
             variant="primary" 
-            href={`tel:${PHONE_NUMBER.replace(/\D/g,'')}`}
+            onClick={() => window.location.href = `tel:${PHONE_NUMBER.replace(/\D/g,'')}`}
             icon={<Phone size={20} />}
           >
             Ligar Agora
           </GradientButton>
           <GradientButton 
             variant="outline" 
-            href={`https://wa.me/${WHATSAPP_NUMBER}?text=Gostaria%20de%20agendar%20uma%20consulta`}
-            target="_blank"
+            onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Gostaria%20de%20agendar%20uma%20consulta`, '_blank')}
             icon={<MessageCircle size={20} />}
           >
             Falar no WhatsApp

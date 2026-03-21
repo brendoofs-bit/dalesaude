@@ -24,7 +24,7 @@ const AboutSection: React.FC = () => {
             {/* Floating Badge with Looping Border */}
             <div className="absolute bottom-6 right-2 md:right-6 bg-white rounded-2xl shadow-xl w-[116px] md:w-44 z-20 group">
               {/* Animated Border Container */}
-              <div className="absolute -inset-[6px] bg-gradient-to-r from-dale-blue to-dale-green rounded-2xl z-0"></div>
+              <div className="absolute -inset-[6px] bg-gradient-to-r from-dale-blue via-dale-green to-dale-blue rounded-2xl bg-[length:200%_100%] animate-border-flow z-0"></div>
               
               <div className="relative bg-white p-3 md:p-4 rounded-2xl z-10 flex flex-col items-center justify-center text-center">
                 <div className="flex items-center gap-1 md:gap-2 mb-1 md:mb-2">
@@ -76,15 +76,14 @@ const AboutSection: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <GradientButton 
                 variant="primary" 
-                href={`tel:${PHONE_NUMBER.replace(/\D/g,'')}`}
+                onClick={() => window.location.href = `tel:${PHONE_NUMBER.replace(/\D/g,'')}`}
                 icon={<Phone size={20} />}
               >
                 Ligar Agora
               </GradientButton>
               <GradientButton 
                 variant="outline" 
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Gostaria%20de%20agendar%20uma%20consulta`}
-                target="_blank"
+                onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Gostaria%20de%20agendar%20uma%20consulta`, '_blank')}
                 icon={<MessageCircle size={20} />}
               >
                 Falar no WhatsApp

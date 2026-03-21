@@ -6,7 +6,7 @@ import { IMAGES, PHONE_NUMBER, WHATSAPP_NUMBER } from '../../constants';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative w-full h-[90vh] min-h-[750px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
+    <section className="relative w-full h-[90vh] min-h-[750px] md:min-h-[600px] flex items-center justify-center overflow-hidden mt-[72px]">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <motion.div 
@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 md:px-8 relative z-10 pt-20">
+      <div className="container mx-auto px-4 md:px-8 relative z-10 pt-10 md:pt-20">
         <div className="max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -66,7 +66,7 @@ const Hero: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <GradientButton 
                 variant="primary" 
-                href={`tel:${PHONE_NUMBER.replace(/\D/g,'')}`}
+                onClick={() => window.location.href = `tel:${PHONE_NUMBER.replace(/\D/g,'')}`}
                 icon={<Phone size={20} />}
               >
                 Ligar Agora
@@ -74,8 +74,7 @@ const Hero: React.FC = () => {
               <GradientButton 
                 variant="outline" 
                 className="!text-white !border-white hover:!bg-white hover:!text-dale-blue"
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Gostaria%20de%20agendar%20uma%20consulta`}
-                target="_blank"
+                onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Gostaria%20de%20agendar%20uma%20consulta`, '_blank')}
                 icon={<MessageCircle size={20} />}
               >
                 Falar no WhatsApp

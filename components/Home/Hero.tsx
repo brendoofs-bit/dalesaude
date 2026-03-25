@@ -37,19 +37,29 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="inline-flex flex-col items-start mb-6">
-              <span className="inline-block py-1 px-3 rounded-full bg-dale-green/20 text-dale-green text-sm font-bold tracking-wider border border-dale-green/30 backdrop-blur-sm mb-2">
-                Avaliação no Google
-              </span>
-              <div className="flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-full backdrop-blur-sm border border-white/10">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-[#4285F4]">
-                  <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
-                </svg>
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-[#F4B400]">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              <div className="relative group cursor-default">
+                <div className="absolute -inset-1 bg-gradient-to-r from-dale-green via-teal-400 to-dale-green rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
+                <div className="relative flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2.5 rounded-2xl">
+                  <div className="flex items-center justify-center w-10 h-10 bg-white rounded-full shadow-inner">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-[#4285F4]">
+                      <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
                     </svg>
-                  ))}
+                  </div>
+                  <div className="flex flex-col">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-white font-bold text-lg leading-none">4.9</span>
+                      <div className="flex gap-0.5">
+                        {[...Array(5)].map((_, i) => (
+                          <svg key={i} xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-[#F4B400]">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                          </svg>
+                        ))}
+                      </div>
+                    </div>
+                    <span className="text-white/80 text-xs font-medium tracking-wide uppercase mt-0.5">
+                      Mais de 1.000 avaliações
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>

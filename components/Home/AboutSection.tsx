@@ -22,22 +22,23 @@ const AboutSection: React.FC = () => {
               </div>
             </div>
             {/* Floating Badge with Looping Border */}
-            <div className="absolute bottom-6 right-2 md:right-6 bg-white rounded-2xl shadow-xl w-[116px] md:w-44 z-20 group">
+            <div className="absolute bottom-6 right-2 md:right-6 bg-white rounded-2xl shadow-xl w-[140px] md:w-48 z-20 group">
               {/* Animated Border Container */}
-              <div className="absolute -inset-[6px] bg-gradient-to-r from-dale-blue via-dale-green to-dale-blue rounded-2xl bg-[length:200%_100%] animate-border-flow z-0"></div>
+              <div className="absolute -inset-[6px] bg-gradient-to-r from-dale-green via-teal-400 to-dale-green rounded-2xl bg-[length:200%_100%] animate-border-flow z-0 opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               <div className="relative bg-white p-3 md:p-4 rounded-2xl z-10 flex flex-col items-center justify-center text-center">
                 <div className="flex items-center gap-1 md:gap-2 mb-1 md:mb-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-[#4285F4] md:w-5 md:h-5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-[#4285F4] md:w-6 md:h-6">
                     <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
                   </svg>
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={10} className="fill-[#F4B400] text-[#F4B400] md:w-[14px] md:h-[14px]" />
-                    ))}
-                  </div>
+                  <span className="font-bold text-lg md:text-xl text-gray-800 leading-none">4.9</span>
                 </div>
-                <span className="font-bold text-[10px] md:text-sm text-gray-800 text-center leading-tight">Avaliação de<br/>EXCELÊNCIA</span>
+                <div className="flex gap-0.5 mb-1.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={12} className="fill-[#F4B400] text-[#F4B400] md:w-[14px] md:h-[14px]" />
+                  ))}
+                </div>
+                <span className="font-bold text-[10px] md:text-xs text-gray-500 text-center leading-tight uppercase tracking-wide">Mais de 1.000<br/>avaliações</span>
               </div>
             </div>
           </div>

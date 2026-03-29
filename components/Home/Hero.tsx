@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, MessageCircle, Phone } from 'lucide-react';
-import GradientButton from '../components/UI/GradientButton';
-import { IMAGES, PHONE_NUMBER, WHATSAPP_NUMBER } from '../constants';
+import GradientButton from '../UI/GradientButton';
+import { IMAGES, PHONE_NUMBER, WHATSAPP_NUMBER } from '../../constants';
 
 const Hero: React.FC = () => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-// Importando todas as peças do quebra-cabeça usando o alias @
+// Importação das seções que compõem a Homepage
 import Hero from '@/components/Home/Hero';
 import ServicesTabs from '@/components/Home/ServicesTabs';
 import ValuesMarquee from '@/components/Home/ValuesMarquee';
@@ -12,14 +12,28 @@ import WhyChooseUs from '@/components/Shared/WhyChooseUs';
 const Home: React.FC = () => {
   return (
     <main>
+      {/* 1. Seção de Impacto Inicial */}
       <Hero />
-      <ImageMarquee />
+
+      {/* 2. Prova Social e Diferenciais */}
       <WhyChooseUs />
+
+      {/* 3. Abas de Serviços e Especialidades */}
       <ServicesTabs />
+
+      {/* 4. Faixa de Valores (Marquee de texto) */}
       <ValuesMarquee />
+
+      {/* 5. Chamada para o plano Dale+ */}
       <DalePlusTeaser />
+
+      {/* 6. Seção Institucional (Sobre) */}
       <AboutSection />
+
+      {/* 7. Depoimentos de Clientes */}
       <ReviewsSection />
+
+      {/* 8. Mapa e Localização */}
       <LocationSection />
     </main>
   );

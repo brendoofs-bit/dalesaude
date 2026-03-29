@@ -1,5 +1,5 @@
 import React from 'react';
-import { IMAGES, PHONE_NUMBER, WHATSAPP_NUMBER } from '../../constants';
+import { IMAGES, PHONE_NUMBER, WHATSAPP_NUMBER } from '../constants';
 import { Heart, Star, CalendarCheck, Wallet, MessageCircle, Phone } from 'lucide-react';
 import GradientButton from '../UI/GradientButton';
 

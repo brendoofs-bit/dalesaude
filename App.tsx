@@ -1,12 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Layout/Header';
-import Footer from './components/Layout/Footer';
-import FloatingWidget from './components/UI/FloatingWidget';
-import Home from './pages/Home';
-import Consultas from './pages/Consultas';
-import Ultrassonografias from './pages/Ultrassonografias';
-import SobreNos from './pages/SobreNos';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// Usando o alias '@' para evitar erros de caminho
+import Header from '@/components/Layout/Header';
+import Footer from '@/components/Layout/Footer';
+import FloatingWidget from '@/components/UI/FloatingWidget';
+import Home from '@/pages/Home';
+import Consultas from '@/pages/Consultas';
+import Ultrassonografias from '@/pages/Ultrassonografias';
+import SobreNos from '@/pages/SobreNos';
 
 function App() {
   return (

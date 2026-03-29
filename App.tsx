@@ -1,7 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // Usando o alias '@' para evitar erros de caminho
 import Header from '@/components/Layout/Header';
 import Footer from '@/components/Layout/Footer';

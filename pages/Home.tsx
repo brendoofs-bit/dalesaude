@@ -1,7 +1,6 @@
 import React from 'react';
 // Importando todas as peças do quebra-cabeça usando o alias @
 import Hero from '@/components/Home/Hero';
-import ImageMarquee from '@/components/Home/ImageMarquee';
 import ServicesTabs from '@/components/Home/ServicesTabs';
 import ValuesMarquee from '@/components/Home/ValuesMarquee';
 import DalePlusTeaser from '@/components/Home/DalePlusTeaser';

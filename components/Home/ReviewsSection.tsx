@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Star, MessageCircle, Phone } from 'lucide-react';
 import { REVIEWS, PHONE_NUMBER, WHATSAPP_NUMBER } from '../../constants';
-import GradientButton from '../UI/GradientButton';
+import GradientButton from '../UI/Botao';
 
 // Google icon placeholder
 const GoogleIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (

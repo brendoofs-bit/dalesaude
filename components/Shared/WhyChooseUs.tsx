@@ -1,4 +1,9 @@
 import React from 'react';
+import { Shield, Clock, Award, Users } from 'lucide-react';
+// 1. Caminho para a raiz (2 níveis)
+import { PHONE_NUMBER, WHATSAPP_NUMBER } from '../../constants'; 
+// 2. Caminho para a pasta vizinha UI (1 nível)
+import GradientButton from '../UI/GradientButton';
 
 const WhyChooseUs: React.FC = () => {
   return (

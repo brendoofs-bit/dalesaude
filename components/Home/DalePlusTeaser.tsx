@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { DALE_PLUS_BENEFITS, WHATSAPP_NUMBER } from '../../constants';
-import GradientButton from '../UI/GradientButton';
+import { DALE_PLUS_BENEFITS, WHATSAPP_NUMBER } from '../constants';
+import GradientButton from '../components/UI/GradientButton';
 import { Stethoscope, Wallet, Clock, Users, ArrowRight } from 'lucide-react';
 
 const iconMap: Record<string, any> = {

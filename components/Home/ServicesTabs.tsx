@@ -63,13 +63,19 @@ const ServicesTabs: React.FC = () => {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex flex-col items-center justify-center py-16 bg-sand-50 rounded-3xl border border-dashed border-dale-green/30 mb-12"
+            className="flex flex-col items-center justify-center py-16 bg-sand-50 rounded-3xl border border-dale-green/30 shadow-sm mb-12 px-4"
           >
-            <ClipboardCheck size={64} className="text-dale-green/50 mb-4" />
-            <h3 className="text-2xl font-bold text-dale-blue mb-2">Em breve!</h3>
-            <p className="text-gray-500 text-center max-w-md">
-              Estamos preparando uma novidade incrível para você cuidar da sua saúde de forma completa e acessível. Aguarde!
+            <ClipboardCheck size={64} className="text-dale-green mb-4" />
+            <h3 className="text-2xl font-bold text-dale-blue mb-2">O Dale+ já chegou!</h3>
+            <p className="text-gray-600 text-center max-w-md mb-6">
+              A forma mais inteligente, prática e acessível de cuidar da sua saúde e da sua família. Assine agora e ganhe benefícios exclusivos.
             </p>
+            <GradientButton 
+              variant="primary"
+              onClick={() => window.open('https://dalemais.com.br', '_blank')}
+            >
+              Conheça o Dale+
+            </GradientButton>
           </motion.div>
         ) : (
           <motion.div 

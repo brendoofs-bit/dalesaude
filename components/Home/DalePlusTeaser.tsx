@@ -23,9 +23,6 @@ const DalePlusTeaser: React.FC = () => {
           
           {/* Text Content */}
           <div className="lg:w-1/2 text-white">
-            <span className="bg-dale-gold text-dale-dark px-3 py-1 rounded text-xs font-bold uppercase tracking-wider mb-4 inline-block">
-              Em breve
-            </span>
             <h2 className="text-4xl md:text-6xl font-serif mb-6">
               Dale<span className="text-dale-gold">+</span>
             </h2>
@@ -37,9 +34,9 @@ const DalePlusTeaser: React.FC = () => {
             </p>
             <GradientButton 
               variant="secondary"
-              onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Gostaria%20de%20saber%20mais%20sobre%20o%20Dale+`, '_blank')}
+              onClick={() => window.open('https://dalemais.com.br', '_blank')}
             >
-              Entrar na Lista de Espera
+              Conheça o Dale+
             </GradientButton>
           </div>
 

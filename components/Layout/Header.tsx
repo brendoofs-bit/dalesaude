@@ -34,14 +34,24 @@ const Header: React.FC = () => {
     { name: 'Especialidades', href: '/consultas' },
     { name: 'Ultrassonografias', href: '/ultrassonografias' },
     { name: 'Sobre Nós', href: '/sobre-nos' },
-    { name: 'Dale+', tag: 'em breve' },
+    { name: 'Dale+', href: 'https://dalemais.com.br', isExternal: true, tag: 'NOVO' },
   ];
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-2 bg-dale-blue shadow-md`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-dale-blue shadow-md`}
     >
-      <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
+      {/* Top Banner Dale+ */}
+      <a 
+        href="https://dalemais.com.br" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="block bg-dale-green text-white text-center py-2 text-xs sm:text-sm font-semibold tracking-wide hover:bg-white hover:text-dale-green transition-colors"
+      >
+        O Dale+ Chegou! A forma mais inteligente de cuidar da sua saúde. <span className="underline font-bold ml-1">Clique e conheça!</span>
+      </a>
+
+      <div className="container mx-auto px-4 md:px-8 py-2 flex justify-between items-center">
         {/* Logo - Keeping original identity (White Dale, Green Saúde) */}
         <Link to="/" className="relative z-50">
            <img 
@@ -54,8 +64,27 @@ const Header: React.FC = () => {
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-8">
-          {navLinks.map((link) => (
-            link.href ? (
+          {navLinks.map((link) => {
+            if (link.isExternal) {
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-semibold tracking-wide transition-colors duration-300 relative group flex items-center gap-2 text-white hover:text-dale-green"
+                >
+                  {link.name}
+                  {link.tag && (
+                    <span className="text-[10px] bg-dale-gold text-black px-1.5 py-0.5 rounded font-bold uppercase tracking-wide">
+                      {link.tag}
+                    </span>
+                  )}
+                  <span className="absolute -bottom-1 left-0 h-0.5 transition-all duration-300 bg-dale-green w-0 group-hover:w-full"></span>
+                </a>
+              );
+            }
+            return link.href ? (
               <Link
                 key={link.name}
                 to={link.href}
@@ -73,20 +102,8 @@ const Header: React.FC = () => {
                   location.pathname === link.href ? 'w-full' : 'w-0 group-hover:w-full'
                 }`}></span>
               </Link>
-            ) : (
-              <div
-                key={link.name}
-                className="text-sm font-semibold tracking-wide text-white/70 flex items-center gap-2 cursor-default"
-              >
-                {link.name}
-                {link.tag && (
-                  <span className="text-[10px] bg-dale-gold text-black px-1.5 py-0.5 rounded font-bold uppercase tracking-wide">
-                    {link.tag}
-                  </span>
-                )}
-              </div>
-            )
-          ))}
+            ) : null;
+          })}
           
           <GradientButton 
             variant="secondary"
@@ -112,8 +129,27 @@ const Header: React.FC = () => {
 
         {/* Mobile Nav Overlay */}
         <div className={`fixed inset-0 bg-dale-blue/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8 transition-transform duration-500 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-          {navLinks.map((link) => (
-            link.href ? (
+          {navLinks.map((link) => {
+            if (link.isExternal) {
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-2xl font-serif transition-colors flex items-center gap-2 text-white hover:text-dale-green"
+                >
+                  {link.name}
+                  {link.tag && (
+                    <span className="text-xs bg-dale-gold text-black px-2 py-1 rounded font-bold uppercase">
+                      {link.tag}
+                    </span>
+                  )}
+                </a>
+              );
+            }
+            return link.href ? (
               <Link
                 key={link.name}
                 to={link.href}
@@ -129,20 +165,8 @@ const Header: React.FC = () => {
                   </span>
                 )}
               </Link>
-            ) : (
-              <div
-                key={link.name}
-                className="text-2xl font-serif text-white/70 flex items-center gap-2 cursor-default"
-              >
-                {link.name}
-                {link.tag && (
-                  <span className="text-xs bg-dale-gold text-black px-2 py-1 rounded font-bold uppercase">
-                    {link.tag}
-                  </span>
-                )}
-              </div>
-            )
-          ))}
+            ) : null;
+          })}
           <div className="mt-8">
             <GradientButton onClick={() => window.location.href = `tel:${PHONE_NUMBER.replace(/\D/g,'')}`}>
               Ligar: {PHONE_NUMBER}

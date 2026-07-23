@@ -57,10 +57,16 @@ const Footer: React.FC = () => {
                 { name: 'Especialidades', link: '/consultas' }, 
                 { name: 'Ultrassonografias', link: '/ultrassonografias' }, 
                 { name: 'Sobre Nós', link: '/sobre-nos' }, 
-                { name: 'Dale+', link: null }
+                { name: 'Dale+', link: 'https://dalemais.com.br', isExternal: true, tag: 'NOVO' }
               ].map((item) => (
                 <li key={item.name}>
-                  {item.link ? (
+                  {item.isExternal ? (
+                    <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group">
+                      <span className="w-1.5 h-1.5 rounded-full bg-dale-green opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                      {item.name}
+                      {item.tag && <span className="text-[10px] bg-dale-gold text-black px-1.5 py-0.5 rounded font-bold uppercase tracking-wide ml-1">{item.tag}</span>}
+                    </a>
+                  ) : item.link ? (
                     <Link to={item.link} className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group">
                       <span className="w-1.5 h-1.5 rounded-full bg-dale-green opacity-0 group-hover:opacity-100 transition-opacity"></span>
                       {item.name}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 // Usando o alias '@' para evitar erros de caminho
 import Header from '@/components/Layout/Header';
 import Footer from '@/components/Layout/Footer';
@@ -19,6 +19,7 @@ function App() {
           <Route path="/consultas" element={<Consultas />} />
           <Route path="/ultrassonografias" element={<Ultrassonografias />} />
           <Route path="/sobre-nos" element={<SobreNos />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <Footer />
         <FloatingWidget />

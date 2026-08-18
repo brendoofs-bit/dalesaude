@@ -25,8 +25,8 @@ export const ADDRESS_LINK = "https://maps.google.com/?q=Rua+Uruguai+147+Tijuca+R
 // Images provided
 export const IMAGES = {
   logo: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771417766/logo-branco-com-verde_xnn8et.webp",
-  heroBg: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1768056150/vista-frontal-sorridente-medica-e-paciente_htvir7.jpg",
-  clinicInterior: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1768056412/recepcao-dalesaude_xwxpib.webp",
+  heroBg: "https://res.cloudinary.com/xkdz1q1u/image/upload/v1787017791/profissional-saude-jaleco-azul-estetoscopio-ambiente-hospitalar.webp",
+  clinicInterior: "https://res.cloudinary.com/xkdz1q1u/image/upload/v1787014783/fileiras-de-cadeiras-plasticas-brancas-em-corredor.webp",
   // Fallbacks using picsum just in case we need more textures
   texture: "https://picsum.photos/1920/1080?grayscale&blur=2",
 };

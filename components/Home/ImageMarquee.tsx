@@ -2,11 +2,10 @@ import React from 'react';
 
 // Specific images requested
 const MARQUEE_IMAGES = [
-  "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771425465/01_mxjnjj.webp",
-  "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771425446/04_onjtqu.webp",
-  "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771425446/03_rrauti.webp",
-  "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771425445/05_sq0a42.webp",
-  "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771425445/02_etccpu.webp"
+  "https://res.cloudinary.com/xkdz1q1u/image/upload/v1787014783/fileiras-de-cadeiras-plasticas-brancas-em-corredor.webp",
+  "https://res.cloudinary.com/xkdz1q1u/image/upload/v1787014783/recepcao-clinica-dale-saude-equipe-atendimento.webp",
+  "https://res.cloudinary.com/xkdz1q1u/image/upload/v1787014783/sala-com-fileiras-de-cadeiras-plasticas-para-treinamento.webp",
+  "https://res.cloudinary.com/xkdz1q1u/image/upload/v1787014783/interior-clinica-balcao-atendimento-autoatendimento.webp"
 ];
 
 const ImageMarquee: React.FC = () => {

@@ -24,7 +24,7 @@ export const ADDRESS_LINK = "https://maps.google.com/?q=Rua+Uruguai+147+Tijuca+R
 
 // Images provided
 export const IMAGES = {
-  logo: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771417766/logo-branco-com-verde_xnn8et.webp",
+  logo: "https://res.cloudinary.com/xkdz1q1u/image/upload/v1787018239/logo_dalesaude.png",
   heroBg: "https://res.cloudinary.com/xkdz1q1u/image/upload/v1787017791/profissional-saude-jaleco-azul-estetoscopio-ambiente-hospitalar.webp",
   clinicInterior: "https://res.cloudinary.com/xkdz1q1u/image/upload/v1787014783/fileiras-de-cadeiras-plasticas-brancas-em-corredor.webp",
   // Fallbacks using picsum just in case we need more textures

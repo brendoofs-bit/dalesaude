@@ -1,7 +1,8 @@
 import React from 'react';
-import { Heart, Star, CalendarCheck, Wallet, MessageCircle, Phone } from 'lucide-react';
-import { IMAGES, PHONE_NUMBER, WHATSAPP_NUMBER } from '@/constants';
+import { Heart, Star, CalendarCheck, Wallet } from 'lucide-react';
+import { IMAGES, WHATSAPP_NUMBER } from '@/constants';
 import GradientButton from '@/components/UI/GradientButton';
+import WhatsAppIcon from '@/components/UI/WhatsAppIcon';
 
 const AboutSection: React.FC = () => {
   return (
@@ -53,9 +54,14 @@ const AboutSection: React.FC = () => {
                  </div>
                ))}
             </div>
-            <div className="flex gap-4">
-              <GradientButton variant="primary" onClick={() => window.location.href = `tel:${PHONE_NUMBER.replace(/\D/g,'')}`}>Ligar Agora</GradientButton>
-              <GradientButton variant="outline" onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}`, '_blank')}>WhatsApp</GradientButton>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <GradientButton 
+                variant="primary" 
+                onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta`, '_blank')}
+                icon={<WhatsAppIcon size={20} />}
+              >
+                Gostaria de agendar uma consulta?
+              </GradientButton>
             </div>
           </div>
         </div>

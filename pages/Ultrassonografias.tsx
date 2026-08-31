@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { WHATSAPP_NUMBER } from '../constants';
 import GradientButton from '../components/UI/GradientButton';
+import WhatsAppIcon from '../components/UI/WhatsAppIcon';
 import ValuesMarquee from '../components/Home/ValuesMarquee';
 
 const ULTRASOUNDS_DATA = [
@@ -84,7 +85,8 @@ const Ultrassonografias: React.FC = () => {
                 <GradientButton 
                   variant="primary" 
                   className="w-full !py-2 !text-sm"
-                  onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Gostaria%20de%20agendar%20uma%20${encodeURIComponent(item.name)}`, '_blank')}
+                  onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20${encodeURIComponent(item.name)}`, '_blank')}
+                  icon={<WhatsAppIcon size={16} />}
                 >
                   Agendar agora
                 </GradientButton>
@@ -96,7 +98,8 @@ const Ultrassonografias: React.FC = () => {
             <p className="text-gray-600 mb-6">Caso o tipo que você precise não esteja na lista, clique no botão abaixo</p>
             <GradientButton 
               variant="outline" 
-              onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Gostaria%20de%20saber%20mais%20sobre%20ultrassonografias`, '_blank')}
+              onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20ultrassonografias`, '_blank')}
+              icon={<WhatsAppIcon size={18} />}
             >
               Quero saber mais
             </GradientButton>
@@ -119,11 +122,11 @@ const Ultrassonografias: React.FC = () => {
                 Na DaleSaúde, você encontra o equilíbrio entre cuidado, agilidade e qualidade.
               </p>
               <GradientButton 
-                variant="outline" 
-                onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Gostaria%20de%20agendar%20uma%20consulta`, '_blank')}
-                className="!border-dale-blue !text-dale-blue hover:!bg-dale-blue hover:!text-white"
+                variant="primary" 
+                onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta`, '_blank')}
+                icon={<WhatsAppIcon size={20} />}
               >
-                Agendar uma consulta
+                Gostaria de agendar uma consulta?
               </GradientButton>
             </div>
             <div className="w-full md:w-1/2 h-64 md:h-auto absolute md:relative right-0 bottom-0 opacity-20 md:opacity-100">

@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, MessageCircle, Phone } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import GradientButton from '../UI/GradientButton';
-import { IMAGES, PHONE_NUMBER, WHATSAPP_NUMBER } from '../../constants';
+import WhatsAppIcon from '../UI/WhatsAppIcon';
+import { IMAGES, WHATSAPP_NUMBER } from '../../constants';
 
 const Hero: React.FC = () => {
   return (
@@ -76,18 +77,23 @@ const Hero: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <GradientButton 
                 variant="primary" 
-                onClick={() => window.location.href = `tel:${PHONE_NUMBER.replace(/\D/g,'')}`}
-                icon={<Phone size={20} />}
+                onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta`, '_blank')}
+                icon={<WhatsAppIcon size={20} />}
+                className="!text-white"
               >
-                Ligar Agora
+                Gostaria de agendar uma consulta?
               </GradientButton>
               <GradientButton 
                 variant="outline" 
                 className="!text-white !border-white hover:!bg-white hover:!text-dale-blue"
-                onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Gostaria%20de%20agendar%20uma%20consulta`, '_blank')}
-                icon={<MessageCircle size={20} />}
+                onClick={() => {
+                  const elem = document.getElementById('especialidades');
+                  if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+                  else window.location.href = '/consultas';
+                }}
+                icon={<ArrowRight size={20} />}
               >
-                Falar no WhatsApp
+                Ver Especialidades
               </GradientButton>
             </div>
           </motion.div>

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { SERVICES, PHONE_NUMBER, WHATSAPP_NUMBER } from '../../constants';
+import { SERVICES, WHATSAPP_NUMBER } from '../../constants';
 import { ServiceItem } from '../../types';
 import GradientButton from '../UI/GradientButton';
-import { ArrowRight, Activity, Scan, ClipboardCheck, MessageCircle, Phone } from 'lucide-react';
+import WhatsAppIcon from '../UI/WhatsAppIcon';
+import { ArrowRight, Activity, Scan, ClipboardCheck } from 'lucide-react';
 
 const ServicesTabs: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'specialty' | 'ultrasound' | 'checkup'>('specialty');
@@ -111,20 +112,13 @@ const ServicesTabs: React.FC = () => {
           </motion.div>
         )}
 
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
+        <div className="flex justify-center">
           <GradientButton 
             variant="primary" 
-            onClick={() => window.location.href = `tel:${PHONE_NUMBER.replace(/\D/g,'')}`}
-            icon={<Phone size={20} />}
+            onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta`, '_blank')}
+            icon={<WhatsAppIcon size={20} />}
           >
-            Ligar Agora
-          </GradientButton>
-          <GradientButton 
-            variant="outline" 
-            onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Gostaria%20de%20agendar%20uma%20consulta`, '_blank')}
-            icon={<MessageCircle size={20} />}
-          >
-            Falar no WhatsApp
+            Gostaria de agendar uma consulta?
           </GradientButton>
         </div>
       </div>

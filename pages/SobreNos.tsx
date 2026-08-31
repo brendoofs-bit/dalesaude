@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { WHATSAPP_NUMBER } from '../constants';
 import GradientButton from '../components/UI/GradientButton';
+import WhatsAppIcon from '../components/UI/WhatsAppIcon';
 import ValuesMarquee from '../components/Home/ValuesMarquee';
 import DalePlusTeaser from '../components/Home/DalePlusTeaser';
 import LocationSection from '../components/Home/LocationSection';
@@ -116,11 +117,11 @@ const SobreNos: React.FC = () => {
                 Na DaleSaúde, você encontra o equilíbrio entre cuidado, agilidade e qualidade. Com uma equipe dedicada, estrutura moderna e mais de 1.000 avaliações positivas, oferecemos uma experiência acolhedora, resolutiva e acessível — para que cuidar da saúde seja fácil, seguro e sem complicações.
               </p>
               <GradientButton 
-                variant="outline" 
-                onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Gostaria%20de%20agendar%20uma%20consulta`, '_blank')}
-                className="!border-dale-blue !text-dale-blue hover:!bg-dale-blue hover:!text-white"
+                variant="primary" 
+                onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta`, '_blank')}
+                icon={<WhatsAppIcon size={20} />}
               >
-                Agendar uma consulta
+                Gostaria de agendar uma consulta?
               </GradientButton>
             </div>
             <div className="w-full md:w-1/2 h-64 md:h-auto absolute md:relative right-0 bottom-0 opacity-20 md:opacity-100">

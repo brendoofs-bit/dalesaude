@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone } from 'lucide-react';
-import { IMAGES, PHONE_NUMBER } from '../../constants';
+import { Menu, X } from 'lucide-react';
+import { IMAGES, WHATSAPP_NUMBER } from '../../constants';
 import GradientButton from '../UI/GradientButton';
+import WhatsAppIcon from '../UI/WhatsAppIcon';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,6 +37,10 @@ const Header: React.FC = () => {
     { name: 'Sobre Nós', href: '/sobre-nos' },
     { name: 'Dale+', href: 'https://dalemais.com.br', isExternal: true, tag: 'NOVO' },
   ];
+
+  const handleWhatsAppClick = () => {
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta`, '_blank');
+  };
 
   return (
     <header 
@@ -106,12 +111,12 @@ const Header: React.FC = () => {
           })}
           
           <GradientButton 
-            variant="secondary"
+            variant="primary"
             className="!py-2 !px-6 text-sm"
-            onClick={() => window.location.href = `tel:${PHONE_NUMBER.replace(/\D/g,'')}`}
+            onClick={handleWhatsAppClick}
+            icon={<WhatsAppIcon size={18} />}
           >
-            <Phone size={16} />
-            <span className="hidden xl:inline">{PHONE_NUMBER}</span>
+            <span>Agendar Consulta</span>
           </GradientButton>
         </nav>
 
@@ -119,6 +124,7 @@ const Header: React.FC = () => {
         <button 
           className="lg:hidden relative z-50 text-white"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Abrir menu"
         >
           {isMenuOpen ? (
             <X size={28} />
@@ -168,8 +174,15 @@ const Header: React.FC = () => {
             ) : null;
           })}
           <div className="mt-8">
-            <GradientButton onClick={() => window.location.href = `tel:${PHONE_NUMBER.replace(/\D/g,'')}`}>
-              Ligar: {PHONE_NUMBER}
+            <GradientButton 
+              variant="primary"
+              onClick={() => {
+                setIsMenuOpen(false);
+                handleWhatsAppClick();
+              }}
+              icon={<WhatsAppIcon size={20} />}
+            >
+              Agendar no WhatsApp
             </GradientButton>
           </div>
         </div>

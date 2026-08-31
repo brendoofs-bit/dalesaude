@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Stethoscope, Heart, Baby, Eye, Bone, Brain, Activity, Apple, User, Scan, ShieldCheck, Pill, Clock, Wallet, Users, Phone, MessageCircle } from 'lucide-react';
+import { Stethoscope, Heart, Baby, Eye, Bone, Brain, Activity, Apple, User, Scan, ShieldCheck, Pill, Clock, Wallet, Users } from 'lucide-react';
 import GradientButton from '../components/UI/GradientButton';
-import { PHONE_NUMBER, WHATSAPP_NUMBER, VALUES } from '../constants';
+import WhatsAppIcon from '../components/UI/WhatsAppIcon';
+import { WHATSAPP_NUMBER, VALUES } from '../constants';
 import DalePlusTeaser from '../components/Home/DalePlusTeaser';
 import WhyChooseUs from '../components/Shared/WhyChooseUs';
 
@@ -252,7 +253,8 @@ const Consultas: React.FC = () => {
                   <GradientButton 
                     variant="primary" 
                     className="w-full md:w-auto !py-2"
-                    onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Gostaria%20de%20agendar%20uma%20consulta%20de%20${encodeURIComponent(item.title)}`, '_blank')}
+                    onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20${encodeURIComponent(item.title)}`, '_blank')}
+                    icon={<WhatsAppIcon size={16} />}
                   >
                     Agendar
                   </GradientButton>
@@ -299,11 +301,11 @@ const Consultas: React.FC = () => {
                 Agende sua consulta agora mesmo e tenha acesso aos melhores especialistas da Tijuca. Atendimento humanizado, preços justos e toda comodidade que você merece.
               </p>
               <GradientButton 
-                variant="outline" 
-                onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Gostaria%20de%20agendar%20uma%20consulta`, '_blank')}
-                className="!border-dale-blue !text-dale-blue hover:!bg-dale-blue hover:!text-white"
+                variant="primary" 
+                onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta`, '_blank')}
+                icon={<WhatsAppIcon size={20} />}
               >
-                Agendar uma consulta
+                Gostaria de agendar uma consulta?
               </GradientButton>
             </div>
             <div className="w-full md:w-1/2 h-64 md:h-auto absolute md:relative right-0 bottom-0 opacity-20 md:opacity-100">

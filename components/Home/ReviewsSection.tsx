@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Star, MessageCircle, Phone } from 'lucide-react';
-import { REVIEWS, PHONE_NUMBER, WHATSAPP_NUMBER } from '../../constants';
+import { Star } from 'lucide-react';
+import { REVIEWS, WHATSAPP_NUMBER } from '../../constants';
 import GradientButton from '../UI/GradientButton';
+import WhatsAppIcon from '../UI/WhatsAppIcon';
 
 // Google icon placeholder
 const GoogleIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
@@ -101,20 +102,13 @@ const ReviewsSection: React.FC = () => {
           ))}
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
+        <div className="flex justify-center">
           <GradientButton 
             variant="primary" 
-            onClick={() => window.location.href = `tel:${PHONE_NUMBER.replace(/\D/g,'')}`}
-            icon={<Phone size={20} />}
+            onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta`, '_blank')}
+            icon={<WhatsAppIcon size={20} />}
           >
-            Ligar Agora
-          </GradientButton>
-          <GradientButton 
-            variant="outline" 
-            onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Gostaria%20de%20agendar%20uma%20consulta`, '_blank')}
-            icon={<MessageCircle size={20} />}
-          >
-            Falar no WhatsApp
+            Gostaria de agendar uma consulta?
           </GradientButton>
         </div>
       </div>

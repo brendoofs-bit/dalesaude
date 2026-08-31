@@ -1,7 +1,8 @@
 import React from 'react';
-import { MapPin, Clock, MessageCircle, Phone } from 'lucide-react';
+import { MapPin, Clock, Phone } from 'lucide-react';
 import { ADDRESS, ADDRESS_LINK, PHONE_NUMBER, WHATSAPP_NUMBER } from '../../constants';
 import GradientButton from '../UI/GradientButton';
+import WhatsAppIcon from '../UI/WhatsAppIcon';
 
 const LocationSection: React.FC = () => {
   return (
@@ -37,26 +38,27 @@ const LocationSection: React.FC = () => {
 
             <div className="mt-10 flex flex-col gap-3">
                <GradientButton 
-                 fullWidth 
-                 onClick={() => window.open(ADDRESS_LINK, '_blank')}
-               >
-                 Como Chegar
-               </GradientButton>
-               <GradientButton 
                  variant="primary"
                  fullWidth 
-                 onClick={() => window.location.href = `tel:${PHONE_NUMBER.replace(/\D/g,'')}`}
-                 icon={<Phone size={20} />}
+                 onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta`, '_blank')}
+                 icon={<WhatsAppIcon size={20} />}
                >
-                 Ligar Agora
+                 Gostaria de agendar uma consulta?
                </GradientButton>
                <GradientButton 
                  variant="outline"
                  fullWidth 
-                 onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Gostaria%20de%20agendar%20uma%20consulta`, '_blank')}
-                 icon={<MessageCircle size={20} />}
+                 onClick={() => window.location.href = `tel:${PHONE_NUMBER.replace(/\D/g,'')}`}
+                 icon={<Phone size={18} />}
                >
-                 WhatsApp
+                 Ligar: {PHONE_NUMBER}
+               </GradientButton>
+               <GradientButton 
+                 variant="outline"
+                 fullWidth 
+                 onClick={() => window.open(ADDRESS_LINK, '_blank')}
+               >
+                 Como Chegar
                </GradientButton>
             </div>
           </div>

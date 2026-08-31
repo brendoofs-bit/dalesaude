@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Instagram, MapPin, Clock, Phone, Video } from 'lucide-react';
-import { ADDRESS, PHONE_NUMBER, IMAGES } from '../../constants';
+import { ADDRESS, PHONE_NUMBER, WHATSAPP_NUMBER, IMAGES } from '../../constants';
+import WhatsAppIcon from '../UI/WhatsAppIcon';
 
 // Simple TikTok icon since Lucide might not have it in this version or to be safe
 const TikTokIcon = ({ size = 20, className = "" }) => (
@@ -92,7 +93,20 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-3 text-gray-400">
                 <Phone className="shrink-0 text-dale-green" size={20} />
-                <span>{PHONE_NUMBER}</span>
+                <a href={`tel:${PHONE_NUMBER.replace(/\D/g, '')}`} className="hover:text-white transition-colors">
+                  Telefone: {PHONE_NUMBER}
+                </a>
+              </li>
+              <li className="flex items-center gap-3 text-gray-400">
+                <WhatsAppIcon className="shrink-0 text-dale-green" size={20} />
+                <a 
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta`} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-white transition-colors"
+                >
+                  WhatsApp: (21) 3525-6618
+                </a>
               </li>
               <li className="flex items-start gap-3 text-gray-400">
                 <Clock className="shrink-0 text-dale-green" size={20} />

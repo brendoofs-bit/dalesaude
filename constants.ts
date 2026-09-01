@@ -37,36 +37,46 @@ export const VALUES = [
   "compromisso", "dedicação", "confiança", "proximidade", "humanização", "excelência"
 ];
 
-export const SERVICES: ServiceItem[] = [
-  // Specialties
-  { id: '1', name: 'Clínico Geral', category: 'specialty' },
-  { id: '2', name: 'Cardiologia', category: 'specialty' },
-  { id: '3', name: 'Ginecologia', category: 'specialty' },
-  { id: '4', name: 'Urologia', category: 'specialty' },
-  { id: '5', name: 'Dermatologia', category: 'specialty' },
-  { id: '6', name: 'Oftalmologia', category: 'specialty' },
-  { id: '7', name: 'Ortopedia', category: 'specialty' },
-  { id: '8', name: 'Endocrinologia', category: 'specialty' },
-  { id: '9', name: 'Psiquiatria', category: 'specialty' },
-  { id: '10', name: 'Urologia', category: 'specialty' },
-  { id: '11', name: 'Angiologia', category: 'specialty' },
-  { id: '12', name: 'Nutrição', category: 'specialty' },
-  { id: '13', name: 'Gastroenterologia', category: 'specialty' },
-  { id: '14', name: 'Neurologia', category: 'specialty' },
-  // Ultrasounds
-  { id: '15', name: 'USG Obstétrica', category: 'ultrasound' },
-  { id: '16', name: 'USG Transvaginal', category: 'ultrasound' },
-  { id: '17', name: 'USG Mamas', category: 'ultrasound' },
-  { id: '18', name: 'USG Aparelho Urinário', category: 'ultrasound' },
-  { id: '19', name: 'USG Articulações', category: 'ultrasound' },
-  { id: '20', name: 'Ecocardiograma', category: 'ultrasound' },
-  // Check-ups
-  { id: '21', name: 'Check-up Mulher 40+', category: 'checkup' },
-  { id: '22', name: 'Check-up Homem 40+', category: 'checkup' },
-  { id: '23', name: 'Check-up Cardiológico', category: 'checkup' },
-  { id: '24', name: 'Check-up Fitness', category: 'checkup' },
-  { id: '25', name: 'Check-up Infantil', category: 'checkup' },
-  { id: '26', name: 'Check-up Pré-Nupcial', category: 'checkup' },
+export const SPECIALTIES = [
+  "Cardiologia",
+  "Ginecologia",
+  "Endocrinologia",
+  "Ortopedia",
+  "Urologia",
+  "Clínico Geral",
+  "Dermatologia",
+  "Gastroenterologia",
+  "Oftalmologia",
+  "Psiquiatria",
+  "Reumatologia",
+  "Neurologia",
+  "Proctologia",
+  "Otorrinolaringologia",
+  "Geriatria",
+  "Pediatria",
+  "Obstetrícia",
+  "Nutrição",
+  "Fisioterapia",
+  "Acupuntura"
+];
+
+export const ULTRASOUNDS = [
+  "Obstétrica",
+  "Obstétrica com Doppler",
+  "Transvaginal",
+  "Morfológica",
+  "Abdome Total",
+  "Mamas",
+  "Próstata"
+];
+
+export const CARDIO_VASCULAR_EXAMS = [
+  "Ecocardiograma",
+  "Eletrocardiograma (ECG)",
+  "Holter 24 horas",
+  "MAPA 24 horas",
+  "Doppler de Carótidas e Vertebrais",
+  "Doppler Arterial e Venoso"
 ];
 
 export const DALE_PLUS_BENEFITS: Benefit[] = [

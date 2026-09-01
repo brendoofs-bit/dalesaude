@@ -55,8 +55,6 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               {[
                 { name: 'Início', link: '/' }, 
-                { name: 'Especialidades', link: '/consultas' }, 
-                { name: 'Ultrassonografias', link: '/ultrassonografias' }, 
                 { name: 'Sobre Nós', link: '/sobre-nos' }, 
                 { name: 'Dale+', link: 'https://dalemais.com.br', isExternal: true, tag: 'NOVO' }
               ].map((item) => (

@@ -1,126 +1,264 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { SERVICES, WHATSAPP_NUMBER, IMAGES } from '../../constants';
-import { ServiceItem } from '../../types';
+import { SPECIALTIES, ULTRASOUNDS, CARDIO_VASCULAR_EXAMS, WHATSAPP_NUMBER, IMAGES, DALE_PLUS_BENEFITS } from '../../constants';
 import GradientButton from '../UI/GradientButton';
 import WhatsAppIcon from '../UI/WhatsAppIcon';
-import { ArrowRight, Activity, Scan, ClipboardCheck } from 'lucide-react';
+import { Activity, Scan, ClipboardCheck, ArrowUpRight, Stethoscope, Wallet, Clock, Users } from 'lucide-react';
+
+const iconMap: Record<string, any> = {
+  Stethoscope, Wallet, Clock, Users
+};
 
 const ServicesTabs: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'specialty' | 'ultrasound' | 'checkup'>('specialty');
+  const [activeTab, setActiveTab] = useState<'specialties' | 'exams' | 'daleplus'>('specialties');
 
-  const filteredServices = SERVICES.filter(s => s.category === activeTab).slice(0, 6);
-  
-  const getTabLabel = (type: string) => {
-    switch(type) {
-      case 'specialty': return 'Especialidades';
-      case 'ultrasound': return 'Ultrassonografias';
-      case 'checkup': return 'Dale +';
-      default: return '';
-    }
+  const handleSpecialtyClick = (specialty: string) => {
+    const text = `Olá! Gostaria de agendar uma consulta de ${specialty} na DaleSaúde.`;
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
   };
 
-  const getRedirectLink = () => {
-    switch(activeTab) {
-      case 'specialty': return 'https://dalesaude.com/consultas';
-      case 'ultrasound': return 'https://dalesaude.com/ultrassonografias';
-      case 'checkup': return 'https://dalesaude.com/checkups';
-      default: return '#';
-    }
+  const handleUltrasoundClick = (exam: string) => {
+    const text = `Olá! Gostaria de agendar um exame de Ultrassonografia ${exam} na DaleSaúde.`;
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
+  };
+
+  const handleCardioExamClick = (exam: string) => {
+    const text = `Olá! Gostaria de agendar um exame de ${exam} na DaleSaúde.`;
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
   };
 
   return (
-    <section id="especialidades" className="py-24 bg-white relative">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-5xl font-serif text-dale-blue mb-6">
-            A clínica da Tijuca onde você é tratado com respeito e paga um <span className="italic text-dale-green">preço justo</span>
-          </h2>
-          <div className="w-24 h-1 bg-dale-gold mx-auto rounded-full"></div>
+    <section id="especialidades" className="py-20 md:py-24 bg-white relative">
+      <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+        
+        {/* Tab Switcher */}
+        <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-14">
+          <button
+            onClick={() => setActiveTab('specialties')}
+            className={`px-6 py-3.5 rounded-full text-base md:text-lg font-semibold transition-all duration-300 flex items-center gap-2.5 ${
+              activeTab === 'specialties'
+                ? 'bg-dale-green text-white shadow-lg shadow-dale-green/20 scale-105'
+                : 'bg-sand-100 text-gray-700 hover:bg-sand-200'
+            }`}
+          >
+            <Activity size={20} />
+            Especialidades Médicas ({SPECIALTIES.length})
+          </button>
+
+          <button
+            onClick={() => setActiveTab('exams')}
+            className={`px-6 py-3.5 rounded-full text-base md:text-lg font-semibold transition-all duration-300 flex items-center gap-2.5 ${
+              activeTab === 'exams'
+                ? 'bg-dale-green text-white shadow-lg shadow-dale-green/20 scale-105'
+                : 'bg-sand-100 text-gray-700 hover:bg-sand-200'
+            }`}
+          >
+            <Scan size={20} />
+            Exames & Ultrassonografias
+          </button>
+
+          <button
+            onClick={() => setActiveTab('daleplus')}
+            className={`px-6 py-3.5 rounded-full text-base md:text-lg font-semibold transition-all duration-300 flex items-center gap-2.5 ${
+              activeTab === 'daleplus'
+                ? 'bg-dale-blue text-white shadow-lg shadow-dale-blue/20 scale-105'
+                : 'bg-sand-100 text-gray-700 hover:bg-sand-200'
+            }`}
+          >
+            <ClipboardCheck size={20} />
+            Dale+
+          </button>
         </div>
 
-        {/* Tabs */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {['specialty', 'ultrasound', 'checkup'].map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab as any)}
-              className={`px-6 py-3 rounded-full text-lg font-medium transition-all duration-300 flex items-center gap-2 ${
-                activeTab === tab 
-                  ? 'bg-dale-green text-white shadow-lg scale-105' 
-                  : 'bg-sand-100 text-gray-600 hover:bg-sand-200'
-              }`}
-            >
-              {tab === 'specialty' && <Activity size={18} />}
-              {tab === 'ultrasound' && <Scan size={18} />}
-              {tab === 'checkup' && <ClipboardCheck size={18} />}
-              {getTabLabel(tab)}
-            </button>
-          ))}
-        </div>
-
-        {/* Grid Content */}
-        {activeTab === 'checkup' ? (
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+        {/* Tab 1: Especialidades Médicas */}
+        {activeTab === 'specialties' && (
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex flex-col items-center justify-center py-16 bg-sand-50 rounded-3xl border border-dale-green/30 shadow-sm mb-12 px-4"
+            transition={{ duration: 0.4 }}
           >
-            <img src={IMAGES.dalePlusLogo} alt="Dale+" className="h-12 w-auto object-contain mb-4" />
-            <h3 className="text-2xl font-bold text-dale-blue mb-2">O Dale+ já chegou!</h3>
-            <p className="text-gray-600 text-center max-w-md mb-6">
-              A forma mais inteligente, prática e acessível de cuidar da sua saúde e da sua família. Assine agora e ganhe benefícios exclusivos.
-            </p>
-            <GradientButton 
-              variant="primary"
-              onClick={() => window.open('https://dalemais.com.br', '_blank')}
-            >
-              Conheça o Dale+
-            </GradientButton>
-          </motion.div>
-        ) : (
-          <motion.div 
-            layout
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
-          >
-            <AnimatePresence mode='popLayout'>
-              {filteredServices.map((service) => (
+            <div className="mb-10 text-left md:text-left">
+              <span className="text-dale-green font-semibold text-sm md:text-base tracking-wider uppercase block mb-2">
+                Especialidades
+              </span>
+              <h2 className="text-3xl md:text-5xl font-serif text-dale-blue mb-3 leading-tight">
+                Mais de 20 especialidades médicas em um só lugar
+              </h2>
+              <p className="text-gray-600 text-base md:text-lg max-w-3xl">
+                Agende sua consulta com nossos especialistas — atendimento até para o mesmo dia.
+              </p>
+            </div>
+
+            {/* Grid of Specialties */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 md:gap-4 mb-12">
+              {SPECIALTIES.map((specialty, index) => (
                 <motion.div
-                  key={service.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3 }}
-                  className="group relative p-8 bg-sand-50 rounded-3xl border border-transparent hover:border-dale-green/20 hover:shadow-xl transition-all duration-300"
+                  key={specialty}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.25, delay: index * 0.02 }}
+                  onClick={() => handleSpecialtyClick(specialty)}
+                  className="group bg-[#eef5ee] hover:bg-dale-green text-dale-blue hover:text-white p-4 md:p-5 rounded-2xl transition-all duration-300 flex items-center justify-between cursor-pointer border border-transparent hover:border-dale-green hover:shadow-lg hover:-translate-y-0.5"
                 >
-                  <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
-                     {/* Decorative icon based on tab */}
-                     {activeTab === 'specialty' ? <Activity size={48} className="text-dale-green" /> : 
-                      activeTab === 'ultrasound' ? <Scan size={48} className="text-dale-green" /> :
-                      <ClipboardCheck size={48} className="text-dale-green" />}
+                  <span className="font-semibold text-base md:text-lg transition-colors">
+                    {specialty}
+                  </span>
+                  <div className="w-8 h-8 rounded-full bg-white/60 group-hover:bg-white/20 flex items-center justify-center transition-colors shrink-0">
+                    <ArrowUpRight size={18} className="text-dale-green group-hover:text-white transition-colors" />
                   </div>
-                  <h3 className="text-xl font-bold text-dale-blue mb-2 group-hover:text-dale-green transition-colors">
-                    {service.name}
-                  </h3>
-                  <p className="text-gray-500 text-sm">
-                    Agende sua consulta ou exame com especialistas qualificados.
-                  </p>
                 </motion.div>
               ))}
-            </AnimatePresence>
+            </div>
+
+            {/* Bottom Section CTA */}
+            <div className="flex justify-center mt-6">
+              <GradientButton
+                variant="primary"
+                onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20DaleSa%C3%BAde`, '_blank')}
+                icon={<WhatsAppIcon size={20} />}
+                className="w-full sm:w-auto text-base md:text-lg !py-4 !px-10 shadow-xl"
+              >
+                Agende sua consulta pelo WhatsApp
+              </GradientButton>
+            </div>
           </motion.div>
         )}
 
-        <div className="flex justify-center">
-          <GradientButton 
-            variant="primary" 
-            onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta`, '_blank')}
-            icon={<WhatsAppIcon size={20} />}
+        {/* Tab 2: Exames & Ultrassonografias */}
+        {activeTab === 'exams' && (
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
           >
-            Gostaria de agendar uma consulta?
-          </GradientButton>
-        </div>
+            <div className="mb-10 text-left">
+              <span className="text-dale-green font-semibold text-sm md:text-base tracking-wider uppercase block mb-2">
+                Exames
+              </span>
+              <h2 className="text-3xl md:text-5xl font-serif text-dale-blue mb-3 leading-tight">
+                Exames com agendamento rápido e preço acessível
+              </h2>
+              <p className="text-gray-600 text-base md:text-lg max-w-3xl">
+                Realizamos os principais exames de imagem e cardiológicos — tudo em um só lugar.
+              </p>
+            </div>
+
+            {/* Subcategory 1: Ultrassonografias */}
+            <div className="mb-10">
+              <h3 className="text-xs md:text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">
+                Ultrassonografias
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 md:gap-4">
+                {ULTRASOUNDS.map((exam, index) => (
+                  <motion.div
+                    key={exam}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.25, delay: index * 0.02 }}
+                    onClick={() => handleUltrasoundClick(exam)}
+                    className="group bg-[#f5eef1] hover:bg-dale-green text-dale-blue hover:text-white p-4 md:p-5 rounded-2xl transition-all duration-300 flex items-center justify-between cursor-pointer border border-transparent hover:border-dale-green hover:shadow-lg hover:-translate-y-0.5"
+                  >
+                    <span className="font-semibold text-base md:text-lg transition-colors">
+                      {exam}
+                    </span>
+                    <div className="w-8 h-8 rounded-full bg-white/60 group-hover:bg-white/20 flex items-center justify-center transition-colors shrink-0">
+                      <ArrowUpRight size={18} className="text-dale-green group-hover:text-white transition-colors" />
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Subcategory 2: Exames Cardiológicos e Vasculares */}
+            <div className="mb-12">
+              <h3 className="text-xs md:text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">
+                Exames Cardiológicos e Vasculares
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 md:gap-4">
+                {CARDIO_VASCULAR_EXAMS.map((exam, index) => (
+                  <motion.div
+                    key={exam}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.25, delay: index * 0.02 }}
+                    onClick={() => handleCardioExamClick(exam)}
+                    className="group bg-[#f5eef1] hover:bg-dale-green text-dale-blue hover:text-white p-4 md:p-5 rounded-2xl transition-all duration-300 flex items-center justify-between cursor-pointer border border-transparent hover:border-dale-green hover:shadow-lg hover:-translate-y-0.5"
+                  >
+                    <span className="font-semibold text-base md:text-lg transition-colors">
+                      {exam}
+                    </span>
+                    <div className="w-8 h-8 rounded-full bg-white/60 group-hover:bg-white/20 flex items-center justify-center transition-colors shrink-0">
+                      <ArrowUpRight size={18} className="text-dale-green group-hover:text-white transition-colors" />
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Bottom Section CTA */}
+            <div className="flex justify-center mt-6">
+              <GradientButton
+                variant="primary"
+                onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20exame%20na%20DaleSa%C3%BAde`, '_blank')}
+                icon={<WhatsAppIcon size={20} />}
+                className="w-full sm:w-auto text-base md:text-lg !py-4 !px-10 shadow-xl"
+              >
+                Agende seu exame pelo WhatsApp
+              </GradientButton>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Tab 3: Dale+ */}
+        {activeTab === 'daleplus' && (
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="bg-dale-blue text-white rounded-3xl p-8 md:p-14 shadow-2xl relative overflow-hidden"
+          >
+            <div className="flex flex-col lg:flex-row items-center gap-12 relative z-10">
+              <div className="lg:w-1/2">
+                <img 
+                  src={IMAGES.dalePlusLogo} 
+                  alt="Dale+ Logo Oficial" 
+                  className="h-14 md:h-16 w-auto object-contain mb-6" 
+                />
+                <h3 className="text-2xl md:text-4xl font-serif mb-4 leading-tight">
+                  A forma mais inteligente de cuidar da sua saúde
+                </h3>
+                <p className="text-gray-300 text-base md:text-lg mb-8 leading-relaxed">
+                  Com uma assinatura simples, você garante consultas incluídas, descontos exclusivos em exames e vantagens em farmácias parceiras.
+                </p>
+                <GradientButton
+                  variant="secondary"
+                  onClick={() => window.open('https://dalemais.com.br', '_blank')}
+                >
+                  Conheça o Dale+
+                </GradientButton>
+              </div>
+
+              <div className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+                {DALE_PLUS_BENEFITS.map((benefit, index) => {
+                  const Icon = iconMap[benefit.icon] || Activity;
+                  return (
+                    <div
+                      key={index}
+                      className="bg-white/10 backdrop-blur-md border border-white/15 p-5 rounded-2xl hover:bg-white/15 transition-all"
+                    >
+                      <div className="w-10 h-10 bg-dale-gold/20 rounded-full flex items-center justify-center mb-3 text-dale-gold">
+                        <Icon size={20} />
+                      </div>
+                      <h4 className="text-white font-bold text-base mb-1">{benefit.title}</h4>
+                      <p className="text-gray-300 text-xs leading-relaxed">{benefit.description}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </motion.div>
+        )}
+
       </div>
     </section>
   );

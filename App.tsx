@@ -5,8 +5,6 @@ import Header from '@/components/Layout/Header';
 import Footer from '@/components/Layout/Footer';
 import FloatingWidget from '@/components/UI/FloatingWidget';
 import Home from '@/pages/Home';
-import Consultas from '@/pages/Consultas';
-import Ultrassonografias from '@/pages/Ultrassonografias';
 import SobreNos from '@/pages/SobreNos';
 
 function App() {
@@ -16,8 +14,6 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/consultas" element={<Consultas />} />
-          <Route path="/ultrassonografias" element={<Ultrassonografias />} />
           <Route path="/sobre-nos" element={<SobreNos />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

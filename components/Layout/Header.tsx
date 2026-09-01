@@ -32,8 +32,6 @@ const Header: React.FC = () => {
 
   const navLinks = [
     { name: 'Início', href: '/' },
-    { name: 'Especialidades', href: '/consultas' },
-    { name: 'Ultrassonografias', href: '/ultrassonografias' },
     { name: 'Sobre Nós', href: '/sobre-nos' },
     { name: 'Dale+', href: 'https://dalemais.com.br', isExternal: true, tag: 'NOVO' },
   ];

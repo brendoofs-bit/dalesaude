@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { SERVICES, WHATSAPP_NUMBER } from '../../constants';
+import { SERVICES, WHATSAPP_NUMBER, IMAGES } from '../../constants';
 import { ServiceItem } from '../../types';
 import GradientButton from '../UI/GradientButton';
 import WhatsAppIcon from '../UI/WhatsAppIcon';
@@ -66,7 +66,7 @@ const ServicesTabs: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="flex flex-col items-center justify-center py-16 bg-sand-50 rounded-3xl border border-dale-green/30 shadow-sm mb-12 px-4"
           >
-            <ClipboardCheck size={64} className="text-dale-green mb-4" />
+            <img src={IMAGES.dalePlusLogo} alt="Dale+" className="h-12 w-auto object-contain mb-4" />
             <h3 className="text-2xl font-bold text-dale-blue mb-2">O Dale+ já chegou!</h3>
             <p className="text-gray-600 text-center max-w-md mb-6">
               A forma mais inteligente, prática e acessível de cuidar da sua saúde e da sua família. Assine agora e ganhe benefícios exclusivos.

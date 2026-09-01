@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { DALE_PLUS_BENEFITS, WHATSAPP_NUMBER } from '../../constants';
+import { DALE_PLUS_BENEFITS, IMAGES } from '../../constants';
 import GradientButton from '../UI/GradientButton';
 import { Stethoscope, Wallet, Clock, Users, ArrowRight } from 'lucide-react';
 
@@ -23,9 +23,13 @@ const DalePlusTeaser: React.FC = () => {
           
           {/* Text Content */}
           <div className="lg:w-1/2 text-white">
-            <h2 className="text-4xl md:text-6xl font-serif mb-6">
-              Dale<span className="text-dale-gold">+</span>
-            </h2>
+            <div className="mb-6">
+              <img 
+                src={IMAGES.dalePlusLogo} 
+                alt="Dale+" 
+                className="h-14 md:h-16 w-auto object-contain"
+              />
+            </div>
             <p className="text-xl font-light mb-8 opacity-90">
               A forma mais prática e acessível de cuidar da sua saúde com frequência.
             </p>

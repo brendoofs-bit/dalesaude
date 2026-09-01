@@ -44,7 +44,8 @@ const SobreNos: React.FC = () => {
               </p>
               <GradientButton 
                 variant="outline" 
-                onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Gostaria%20de%20saber%20mais%20sobre%20a%20DaleSaúde`, '_blank')}
+                onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20DaleSaúde`, '_blank')}
+                icon={<WhatsAppIcon size={18} />}
               >
                 Saber mais
               </GradientButton>
@@ -80,7 +81,8 @@ const SobreNos: React.FC = () => {
               </ul>
               <GradientButton 
                 variant="outline" 
-                onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Gostaria%20de%20saber%20mais%20sobre%20a%20DaleSaúde`, '_blank')}
+                onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20DaleSaúde`, '_blank')}
+                icon={<WhatsAppIcon size={18} />}
               >
                 Saber mais
               </GradientButton>

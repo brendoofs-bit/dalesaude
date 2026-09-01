@@ -8,7 +8,6 @@ import DalePlusTeaser from '@/components/Home/DalePlusTeaser';
 import AboutSection from '@/components/Home/AboutSection';
 import ReviewsSection from '@/components/Home/ReviewsSection';
 import LocationSection from '@/components/Home/LocationSection';
-import DaleIndicaSection from '@/components/Home/DaleIndicaSection';
 
 const Home: React.FC = () => {
   return (
@@ -16,28 +15,25 @@ const Home: React.FC = () => {
       {/* 1. Impacto Inicial (Banner principal) */}
       <Hero />
 
-      {/* 2. Faixa de Fotos da Clínica (O que você pensou em remover, mas agora voltou) */}
+      {/* 2. Faixa de Fotos da Clínica */}
       <ImageMarquee />
 
-      {/* 3. Abas de Especialidades e Exames (O coração do site) */}
+      {/* 3. Abas de Especialidades e Exames */}
       <ServicesTabs />
 
       {/* 4. Faixa de Valores (Texto correndo) */}
       <ValuesMarquee />
 
-      {/* 5. Programa de Indicação */}
-      <DaleIndicaSection />
-
-      {/* 6. Chamada Dale+ */}
+      {/* 5. Chamada Dale+ */}
       <DalePlusTeaser />
 
-      {/* 7. Seção Sobre (Institucional) */}
+      {/* 6. Seção Sobre (Institucional) */}
       <AboutSection />
 
-      {/* 8. Depoimentos dos Clientes (Prova Social) */}
+      {/* 7. Depoimentos dos Clientes (Prova Social) */}
       <ReviewsSection />
 
-      {/* 9. Localização e Mapa */}
+      {/* 8. Localização e Mapa */}
       <LocationSection />
     </main>
   );

@@ -44,7 +44,9 @@ const SobreNos: React.FC = () => {
               </p>
               <GradientButton 
                 variant="outline" 
-                onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20DaleSaúde`, '_blank')}
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20DaleSaúde`}
+                target="_blank"
+                rel="noopener noreferrer"
                 icon={<WhatsAppIcon size={18} />}
               >
                 Saber mais
@@ -81,7 +83,9 @@ const SobreNos: React.FC = () => {
               </ul>
               <GradientButton 
                 variant="outline" 
-                onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20DaleSaúde`, '_blank')}
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20DaleSaúde`}
+                target="_blank"
+                rel="noopener noreferrer"
                 icon={<WhatsAppIcon size={18} />}
               >
                 Saber mais
@@ -120,7 +124,9 @@ const SobreNos: React.FC = () => {
               </p>
               <GradientButton 
                 variant="primary" 
-                onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta`, '_blank')}
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta`}
+                target="_blank"
+                rel="noopener noreferrer"
                 icon={<WhatsAppIcon size={20} />}
               >
                 Gostaria de agendar uma consulta?

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Instagram, MapPin, Clock, Phone, Video } from 'lucide-react';
-import { ADDRESS, PHONE_NUMBER, WHATSAPP_NUMBER, IMAGES } from '../../constants';
+import { ADDRESS, PHONE_NUMBER, PHONE_TEL, WHATSAPP_NUMBER, IMAGES } from '../../constants';
 import WhatsAppIcon from '../UI/WhatsAppIcon';
 
 // Simple TikTok icon since Lucide might not have it in this version or to be safe
@@ -91,7 +91,7 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-3 text-gray-400">
                 <Phone className="shrink-0 text-dale-green" size={20} />
-                <a href={`tel:${PHONE_NUMBER.replace(/\D/g, '')}`} className="hover:text-white transition-colors">
+                <a href={`tel:${PHONE_TEL}`} className="hover:text-white transition-colors">
                   Telefone: {PHONE_NUMBER}
                 </a>
               </li>

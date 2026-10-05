@@ -221,10 +221,10 @@ const Header: React.FC = () => {
         <div className="mt-8">
           <GradientButton
             variant="primary"
-            onClick={() => {
-              setIsMenuOpen(false);
-              window.open(WHATSAPP_URL, '_blank');
-            }}
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setIsMenuOpen(false)}
             icon={<WhatsAppIcon size={20} />}
           >
             Agendar no WhatsApp

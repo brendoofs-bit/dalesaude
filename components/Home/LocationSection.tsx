@@ -1,6 +1,6 @@
 import React from 'react';
 import { MapPin, Clock, Phone } from 'lucide-react';
-import { ADDRESS, ADDRESS_LINK, PHONE_NUMBER, WHATSAPP_NUMBER } from '../../constants';
+import { ADDRESS, ADDRESS_LINK, PHONE_NUMBER, PHONE_TEL, WHATSAPP_NUMBER } from '../../constants';
 import GradientButton from '../UI/GradientButton';
 import WhatsAppIcon from '../UI/WhatsAppIcon';
 
@@ -40,7 +40,9 @@ const LocationSection: React.FC = () => {
                <GradientButton 
                  variant="primary"
                  fullWidth 
-                 onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta`, '_blank')}
+                 href={`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta`}
+                 target="_blank"
+                 rel="noopener noreferrer"
                  icon={<WhatsAppIcon size={20} />}
                >
                  Gostaria de agendar uma consulta?
@@ -48,7 +50,7 @@ const LocationSection: React.FC = () => {
                <GradientButton 
                  variant="outline"
                  fullWidth 
-                 onClick={() => window.location.href = `tel:${PHONE_NUMBER.replace(/\D/g,'')}`}
+                 href={`tel:${PHONE_TEL}`}
                  icon={<Phone size={18} />}
                >
                  Ligar: {PHONE_NUMBER}
@@ -56,7 +58,9 @@ const LocationSection: React.FC = () => {
                <GradientButton 
                  variant="outline"
                  fullWidth 
-                 onClick={() => window.open(ADDRESS_LINK, '_blank')}
+                 href={ADDRESS_LINK}
+                 target="_blank"
+                 rel="noopener noreferrer"
                >
                  Como Chegar
                </GradientButton>

@@ -57,7 +57,9 @@ const AboutSection: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <GradientButton 
                 variant="primary" 
-                onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta`, '_blank')}
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta`}
+                target="_blank"
+                rel="noopener noreferrer"
                 icon={<WhatsAppIcon size={20} />}
               >
                 Gostaria de agendar uma consulta?

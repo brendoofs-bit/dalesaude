@@ -87,7 +87,7 @@ const Header: React.FC = () => {
               <span className="text-[15px] leading-[1.2] font-semibold text-left">
                 Agendamento
                 <br />
-                online
+                Online
               </span>
             </a>
             <ResultadosExames
@@ -153,22 +153,29 @@ const Header: React.FC = () => {
 
       {/* Os três botões do topo no celular e tablet */}
       <div className="lg:hidden border-t border-ref-line/80">
-        <div className="container mx-auto px-4 md:px-8 flex gap-1.5 min-[400px]:gap-2 overflow-x-auto py-2.5 no-scrollbar">
+        <div className="container mx-auto px-2.5 min-[360px]:px-3 min-[400px]:px-4 md:px-8 flex items-center justify-between gap-1.5 min-[360px]:gap-2 py-2">
           <a
             href={AGENDAMENTO_ONLINE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-11 shrink-0 items-center gap-1.5 rounded-xl bg-ref-blue px-3 text-[13.5px] font-semibold whitespace-nowrap text-white"
+            className="flex-1 min-w-0 inline-flex h-11 min-[360px]:h-12 items-center justify-center gap-1.5 min-[360px]:gap-2 rounded-xl bg-ref-blue px-2 min-[360px]:px-2.5 text-white transition-colors hover:bg-ref-blue-dark"
           >
-            <Calendar size={18} className="hidden min-[380px]:block shrink-0" />
-            <span>
-              Agendamento<span className="hidden min-[440px]:inline"> online</span>
+            <Calendar size={16} strokeWidth={1.8} className="shrink-0" />
+            <span className="text-[11px] min-[360px]:text-[12px] min-[400px]:text-[13px] leading-[1.15] font-semibold text-left">
+              Agendamento
+              <br />
+              Online
             </span>
           </a>
-          <ResultadosExames className="inline-flex h-11 shrink-0 items-center gap-1.5 rounded-xl border border-ref-lilac-border bg-ref-lilac px-3 text-[13.5px] font-semibold whitespace-nowrap text-ref-lilac-text">
-            <FileText size={18} className="hidden min-[380px]:block shrink-0" />
-            <span>
-              Resultados<span className="hidden min-[560px]:inline"> de exames</span>
+          <ResultadosExames
+            className="flex-1 min-w-0 inline-flex h-11 min-[360px]:h-12 items-center justify-center gap-1.5 min-[360px]:gap-2 rounded-xl border border-ref-lilac-border bg-ref-lilac px-2 min-[360px]:px-2.5 text-ref-lilac-text transition-colors"
+            hoverClassName="hover:bg-[#DFE3FD]"
+          >
+            <FileText size={16} strokeWidth={1.8} className="shrink-0" />
+            <span className="text-[11px] min-[360px]:text-[12px] min-[400px]:text-[13px] leading-[1.15] font-semibold text-left">
+              Resultados
+              <br />
+              de exames
             </span>
           </ResultadosExames>
           <a
@@ -176,9 +183,9 @@ const Header: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="DALE+ Benefícios"
-            className="inline-flex h-11 shrink-0 items-center rounded-xl border border-ref-line bg-white px-2.5"
+            className="shrink-0 inline-flex h-11 min-[360px]:h-12 items-center justify-center rounded-xl border border-ref-line bg-white px-2 min-[360px]:px-3 transition-shadow hover:shadow-md"
           >
-            <img src={IMAGES.dalePlusLogo} alt="DALE+ Benefícios" width={60} height={32} className="h-8 w-auto" />
+            <img src={IMAGES.dalePlusLogo} alt="DALE+ Benefícios" width={60} height={32} className="h-6 min-[360px]:h-7 w-auto" />
           </a>
         </div>
       </div>

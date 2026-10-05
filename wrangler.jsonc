@@ -2,6 +2,9 @@
   "name": "dalesaude",
   "compatibility_date": "2026-03-21",
   "assets": {
-    "directory": "./dist"
+    "directory": "./dist",
+    // Corrige o 404 ao dar F5 (ou abrir direto) em qualquer página que não seja a home:
+    // URLs que não são arquivos devolvem o index.html e o React Router abre a página certa.
+    "not_found_handling": "single-page-application"
   }
 }

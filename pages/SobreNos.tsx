@@ -15,7 +15,7 @@ const SobreNos: React.FC = () => {
   }, []);
 
   return (
-    <main className="pt-[72px] bg-sand-50">
+    <main className="pt-[var(--header-h)] bg-sand-50">
       {/* Hero Section */}
       <section className="bg-dale-blue text-white py-16 md:py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>

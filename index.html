@@ -40,6 +40,32 @@
                 50: '#F9F9F7',
                 100: '#F0F0EB',
                 200: '#E2E2D9',
+              },
+              // Cores da referência visual aprovada (topo e hero) – guia de ajustes 02/10/2026
+              ref: {
+                ink: '#0B1430',
+                text: '#1D264E',
+                muted: '#6B6C80',
+                line: '#E6E3EC',
+                canvas: '#FAF7F4',
+                blue: '#0561B8',
+                'blue-dark': '#044C91',
+                'blue-light': '#E0EDF5',
+                'blue-pin': '#0880F8',
+                whats: '#03A62D',
+                'whats-dark': '#028F26',
+                leaf: '#D8E8CB',
+                lilac: '#E7EAFE',
+                'lilac-border': '#C9CFF9',
+                'lilac-text': '#4352C9',
+                star: '#FCC13C',
+              },
+              // Cores do site do DALE+ (seção DALE+ Benefícios)
+              dm: {
+                navy: '#07263B',
+                blue: '#036EAD',
+                sky: '#5DB6F2',
+                yellow: '#F9C638',
               }
             },
             animation: {
@@ -79,6 +105,26 @@
       .no-scrollbar::-webkit-scrollbar { display: none; }
       .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       body { background-color: #F9F9F7; }
+
+      /* Ajustes do site (02/10/2026): altura do topo fixo, usada para afastar o conteúdo */
+      :root { --header-h: 130px; }
+      @media (min-width: 1024px) { :root { --header-h: 97px; } }
+
+      /* Hero: foto com degradê nas bordas, para fundir com o fundo da seção */
+      .hero-photo {
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 32%, #000 94%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 6%, #000 66%, transparent 97%);
+        -webkit-mask-composite: source-in;
+        mask-image: linear-gradient(to right, transparent 0%, #000 32%, #000 94%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 6%, #000 66%, transparent 97%);
+        mask-composite: intersect;
+      }
+      @media (min-width: 640px) {
+        .hero-photo {
+          -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 14%), linear-gradient(to bottom, #000 80%, transparent 100%);
+          -webkit-mask-composite: source-in;
+          mask-image: linear-gradient(to right, transparent 0%, #000 14%), linear-gradient(to bottom, #000 80%, transparent 100%);
+          mask-composite: intersect;
+        }
+      }
     </style>
   <script type="importmap">
 {
@@ -99,5 +145,9 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMQHNDFP"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Webchat com IA (Omnichannel) – guia de ajustes, item 4 -->
+    <script src="https://omnichannel.regente.ai/v1/webchat/widget.js"
+        data-key="wc_QtqK0zXepujdJCvg5Mk5mmQn"></script>
   </body>
 </html>

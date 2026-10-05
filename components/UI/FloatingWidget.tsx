@@ -5,8 +5,9 @@ import { WHATSAPP_NUMBER } from '../../constants';
 const FloatingWidget: React.FC = () => {
   const [isHoveredWa, setIsHoveredWa] = useState(false);
 
+  // Fica acima do balão do webchat (guia de ajustes, item 4), que ocupa o canto: bottom 20px, right 20px, 60px
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+    <div className="fixed bottom-[96px] right-5 z-50 flex flex-col items-end gap-3">
       {/* WhatsApp Floating CTA */}
       <a
         href={`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta`}

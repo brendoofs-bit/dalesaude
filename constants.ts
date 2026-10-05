@@ -145,3 +145,42 @@ export const REVIEWS = [
     text: "As recepcionistas são extremamente gentis e atenciosas!!!! Que elas sejam muito valorizadas pq trabalhar com o público é muito estressante! Vi elas atendendo uma senhora arrogante com muita sabedoria, simpatia e atenciosidade! Fiquei impressionada com tanto profissionalismo! O lugar é super organizado e limpo! Médico também muito atencioso!"
   }
 ];
+
+// ---------------------------------------------------------------------------
+// Ajustes do site (Guia de ajustes do site – DALE Saúde, 02/10/2026)
+// ---------------------------------------------------------------------------
+
+/** Telefone oficial no formato do link tel: (botão "Ligar") */
+export const PHONE_TEL = "+552135256618";
+
+/** WhatsApp oficial da clínica (mesma mensagem já usada no site) */
+export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta`;
+
+/** Botão "Agendamento online" (Quark Clinic) */
+export const AGENDAMENTO_ONLINE_URL = "https://agendamento.quarkclinic.com.br/index/477336661";
+
+/**
+ * PENDENTE: link do botão "Resultados de exames" (ERP).
+ * Enquanto estiver vazio, o botão aparece no topo mas não tem ação,
+ * como pede o guia ("não publicar link errado"). Quando a DALE enviar a URL,
+ * basta colar aqui.
+ */
+export const RESULTADOS_EXAMES_URL = "";
+
+/** Site do clube DALE+ Benefícios */
+export const DALE_PLUS_URL = "https://dalemais.com.br";
+
+/** Imagens usadas pelos ajustes (topo, hero e seção DALE+) */
+export const AJUSTES_IMAGES = {
+  /** Logo na versão positiva (topo branco da referência aprovada) */
+  logoPositivo: "/images/logo-dalesaude.svg",
+  /** Foto do hero (Cloudinary), usada no celular e no desktop */
+  hero: {
+    src: "https://res.cloudinary.com/xkdz1q1u/image/upload/f_auto,q_auto,c_limit,w_1242/v1791162444/medica_com_jaleco_branco_sorrindo_para_foto_logo_no_braco_dale_saude.jpg",
+    srcSet: [640, 1024, 1242, 1440, 1920, 2752]
+      .map((w) => `https://res.cloudinary.com/xkdz1q1u/image/upload/f_auto,q_auto,c_limit,w_${w}/v1791162444/medica_com_jaleco_branco_sorrindo_para_foto_logo_no_braco_dale_saude.jpg ${w}w`)
+      .join(', '),
+  },
+  /** Foto familiar do próprio site do DALE+ (referência visual do guia) */
+  dalePlusFamilia: "https://dalemais.com.br/images/banner.jpg",
+};

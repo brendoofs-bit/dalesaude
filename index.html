@@ -149,7 +149,151 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <!-- Webchat com IA (Omnichannel) – guia de ajustes, item 4 -->
-    <script src="https://omnichannel.regente.ai/v1/webchat/widget.js"
+    <script id="omnichannel-widget-script" src="https://omnichannel.regente.ai/v1/webchat/widget.js"
         data-key="wc_QtqK0zXepujdJCvg5Mk5mmQn"></script>
+    <script>
+      (function() {
+        function initWebchatFallback() {
+          if (document.querySelector('.abwc-btn')) return;
+          var KEY = 'wc_QtqK0zXepujdJCvg5Mk5mmQn';
+          var BASE = 'https://omnichannel.regente.ai';
+          var ACCENT = '#6d28d9';
+          var TITLE = 'Atendimento';
+          var LS = 'abwc_' + KEY;
+          var token = null, visitorId = null, es = null, open = false;
+
+          var css = document.createElement('style');
+          css.textContent = ''
+            + '.abwc-btn{position:fixed;bottom:20px;right:20px;width:60px;height:60px;border-radius:50%;background:'+ACCENT+';color:#fff;border:0;cursor:pointer;box-shadow:0 6px 24px rgba(0,0,0,.25);z-index:2147483000;display:flex;align-items:center;justify-content:center;transition:transform .2s}'
+            + '.abwc-btn:hover{transform:scale(1.05)}'
+            + '.abwc-btn svg{width:28px;height:28px}'
+            + '.abwc-panel{position:fixed;bottom:92px;right:20px;width:360px;max-width:calc(100vw - 32px);height:520px;max-height:calc(100vh - 120px);background:#fff;border-radius:16px;box-shadow:0 16px 48px rgba(0,0,0,.28);z-index:2147483000;display:none;flex-direction:column;overflow:hidden;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}'
+            + '.abwc-panel.open{display:flex}'
+            + '.abwc-head{background:'+ACCENT+';color:#fff;padding:14px 16px;font-weight:700;display:flex;align-items:center;justify-content:space-between}'
+            + '.abwc-body{flex:1;overflow-y:auto;padding:14px;background:#f6f6f9;display:flex;flex-direction:column;gap:8px}'
+            + '.abwc-msg{max-width:80%;padding:8px 12px;border-radius:12px;font-size:14px;line-height:1.4;white-space:pre-wrap;word-break:break-word}'
+            + '.abwc-in{align-self:flex-start;background:#fff;color:#111;border:1px solid #e6e2ef}'
+            + '.abwc-out{align-self:flex-end;background:'+ACCENT+';color:#fff}'
+            + '.abwc-foot{display:flex;gap:8px;padding:10px;border-top:1px solid #eee;background:#fff}'
+            + '.abwc-foot input{flex:1;border:1px solid #ddd;border-radius:10px;padding:10px 12px;font-size:14px;outline:none}'
+            + '.abwc-foot button{background:'+ACCENT+';color:#fff;border:0;border-radius:10px;padding:0 14px;cursor:pointer;font-weight:700}';
+          document.head.appendChild(css);
+
+          var btn = document.createElement('button');
+          btn.className = 'abwc-btn';
+          btn.setAttribute('aria-label', 'Abrir atendimento');
+          btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8A8.5 8.5 0 0 1 12.5 3 8.5 8.5 0 0 1 21 11.5z"/></svg>';
+
+          var panel = document.createElement('div');
+          panel.className = 'abwc-panel';
+          panel.innerHTML = '<div class="abwc-head"><span>' + TITLE + '</span><button id="abwc-close" style="background:none;border:none;color:#fff;font-size:18px;cursor:pointer;padding:0;line-height:1" aria-label="Fechar">✕</button></div>'
+            + '<div class="abwc-body" id="abwc-body"></div>'
+            + '<div class="abwc-foot"><input id="abwc-input" placeholder="Escreva sua mensagem" autocomplete="off"><button id="abwc-send">Enviar</button></div>';
+
+          document.body.appendChild(panel);
+          document.body.appendChild(btn);
+
+          var body = panel.querySelector('#abwc-body');
+          var input = panel.querySelector('#abwc-input');
+
+          function add(m) {
+            var d = document.createElement('div');
+            d.className = 'abwc-msg ' + (m.direction === 'inbound' ? 'abwc-out' : 'abwc-in');
+            d.textContent = m.content;
+            body.appendChild(d);
+            body.scrollTop = body.scrollHeight;
+          }
+
+          function api(path, opts) {
+            opts = opts || {};
+            opts.headers = opts.headers || {};
+            opts.headers['Content-Type'] = 'application/json';
+            if (token) opts.headers['Authorization'] = 'Bearer ' + token;
+            return fetch(BASE + path, opts).then(function(r) { return r.json(); });
+          }
+
+          function connect() {
+            if (es) es.close();
+            es = new EventSource(BASE + '/v1/webchat/stream?token=' + encodeURIComponent(token));
+            es.addEventListener('message', function(e) {
+              try { add(JSON.parse(e.data)); } catch (x) {}
+            });
+            es.onerror = function() {};
+          }
+
+          function ensureSession() {
+            var saved = null;
+            try { saved = JSON.parse(localStorage.getItem(LS)); } catch (x) {}
+            if (saved && saved.token) {
+              token = saved.token;
+              visitorId = saved.visitorId;
+              return Promise.resolve();
+            }
+            return api('/v1/webchat/session', {
+              method: 'POST',
+              body: JSON.stringify({ key: KEY })
+            }).then(function(res) {
+              if (res && res.data) {
+                token = res.data.sessionToken;
+                visitorId = res.data.visitorId;
+                try {
+                  localStorage.setItem(LS, JSON.stringify({ token: token, visitorId: visitorId }));
+                } catch (x) {}
+              }
+            });
+          }
+
+          function loadHistory() {
+            return api('/v1/webchat/history?token=' + encodeURIComponent(token)).then(function(res) {
+              body.innerHTML = '';
+              (res && res.data || []).forEach(add);
+            });
+          }
+
+          function send() {
+            var t = input.value.trim();
+            if (!t) return;
+            input.value = '';
+            add({ direction: 'inbound', content: t });
+            api('/v1/webchat/message', {
+              method: 'POST',
+              body: JSON.stringify({ text: t })
+            }).catch(function() {});
+          }
+
+          panel.querySelector('#abwc-send').addEventListener('click', send);
+          panel.querySelector('#abwc-close').addEventListener('click', function() {
+            open = false;
+            panel.classList.remove('open');
+          });
+          input.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') send();
+          });
+
+          btn.addEventListener('click', function() {
+            open = !open;
+            panel.classList.toggle('open', open);
+            if (open && !token) {
+              ensureSession().then(loadHistory).then(connect);
+            } else if (open && token && !es) {
+              loadHistory().then(connect);
+            }
+            if (open) setTimeout(function() { input.focus(); }, 100);
+          });
+        }
+
+        var scriptEl = document.getElementById('omnichannel-widget-script');
+        if (scriptEl) {
+          scriptEl.addEventListener('error', initWebchatFallback);
+        }
+        if (document.readyState === 'complete') {
+          setTimeout(initWebchatFallback, 250);
+        } else {
+          window.addEventListener('load', function() {
+            setTimeout(initWebchatFallback, 250);
+          });
+        }
+      })();
+    </script>
   </body>
 </html>

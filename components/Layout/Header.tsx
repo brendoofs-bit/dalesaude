@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Calendar, FileText, Phone } from 'lucide-react';
+import { Menu, X, Calendar, Phone } from 'lucide-react';
 import {
   IMAGES,
   AJUSTES_IMAGES,
@@ -8,35 +8,15 @@ import {
   PHONE_TEL,
   WHATSAPP_URL,
   AGENDAMENTO_ONLINE_URL,
-  RESULTADOS_EXAMES_URL,
   DALE_PLUS_URL,
 } from '../../constants';
 import GradientButton from '../UI/GradientButton';
 import WhatsAppIcon from '../UI/WhatsAppIcon';
 
 /**
- * "Resultados de exames": o botão fica visível, mas só ganha ação quando o link do ERP
- * for preenchido em RESULTADOS_EXAMES_URL (constants.ts). Guia de ajustes, item 1.
- */
-const ResultadosExames: React.FC<{ className: string; hoverClassName?: string; children: React.ReactNode }> = ({
-  className,
-  hoverClassName = '',
-  children,
-}) =>
-  RESULTADOS_EXAMES_URL ? (
-    <a href={RESULTADOS_EXAMES_URL} target="_blank" rel="noopener noreferrer" className={`${className} ${hoverClassName}`}>
-      {children}
-    </a>
-  ) : (
-    <span aria-disabled="true" className={`${className} cursor-default`}>
-      {children}
-    </span>
-  );
-
-/**
- * Topo conforme a referência visual aprovada (guia de ajustes, item 1):
- * logo | Agendamento online | Resultados de exames | DALE+ Benefícios | Ligar | WhatsApp 24h
- * No celular os três botões ficam numa faixa logo abaixo do logo.
+ * Topo conforme a referência visual aprovada:
+ * logo | Agendamento online | DALE+ Benefícios | Ligar | WhatsApp 24h
+ * No celular os botões ficam numa faixa logo abaixo do logo.
  */
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -90,17 +70,6 @@ const Header: React.FC = () => {
                 Online
               </span>
             </a>
-            <ResultadosExames
-              className="inline-flex h-16 items-center gap-3 rounded-xl border border-ref-lilac-border bg-ref-lilac px-4 text-ref-lilac-text transition-colors"
-              hoverClassName="hover:bg-[#DFE3FD]"
-            >
-              <FileText size={28} strokeWidth={1.8} className="shrink-0" />
-              <span className="text-[15px] leading-[1.2] font-semibold text-left">
-                Resultados
-                <br />
-                de exames
-              </span>
-            </ResultadosExames>
             <a
               href={DALE_PLUS_URL}
               target="_blank"
@@ -151,41 +120,28 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Os três botões do topo no celular e tablet */}
+      {/* Botões do topo no celular e tablet */}
       <div className="lg:hidden border-t border-ref-line/80">
-        <div className="container mx-auto px-2.5 min-[360px]:px-3 min-[400px]:px-4 md:px-8 flex items-center justify-between gap-1.5 min-[360px]:gap-2 py-2">
+        <div className="container mx-auto px-4 md:px-8 flex items-center justify-between gap-2.5 py-2">
           <a
             href={AGENDAMENTO_ONLINE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 min-w-0 inline-flex h-11 min-[360px]:h-12 items-center justify-center gap-1.5 min-[360px]:gap-2 rounded-xl bg-ref-blue px-2 min-[360px]:px-2.5 text-white transition-colors hover:bg-ref-blue-dark"
+            className="flex-1 min-w-0 inline-flex h-11 min-[360px]:h-12 items-center justify-center gap-2 rounded-xl bg-ref-blue px-3 text-white transition-colors hover:bg-ref-blue-dark"
           >
-            <Calendar size={16} strokeWidth={1.8} className="shrink-0" />
-            <span className="text-[11px] min-[360px]:text-[12px] min-[400px]:text-[13px] leading-[1.15] font-semibold text-left">
-              Agendamento
-              <br />
-              Online
+            <Calendar size={18} strokeWidth={1.8} className="shrink-0" />
+            <span className="text-[12.5px] min-[360px]:text-[13.5px] font-semibold text-left whitespace-nowrap">
+              Agendamento Online
             </span>
           </a>
-          <ResultadosExames
-            className="flex-1 min-w-0 inline-flex h-11 min-[360px]:h-12 items-center justify-center gap-1.5 min-[360px]:gap-2 rounded-xl border border-ref-lilac-border bg-ref-lilac px-2 min-[360px]:px-2.5 text-ref-lilac-text transition-colors"
-            hoverClassName="hover:bg-[#DFE3FD]"
-          >
-            <FileText size={16} strokeWidth={1.8} className="shrink-0" />
-            <span className="text-[11px] min-[360px]:text-[12px] min-[400px]:text-[13px] leading-[1.15] font-semibold text-left">
-              Resultados
-              <br />
-              de exames
-            </span>
-          </ResultadosExames>
           <a
             href={DALE_PLUS_URL}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="DALE+ Benefícios"
-            className="shrink-0 inline-flex h-11 min-[360px]:h-12 items-center justify-center rounded-xl border border-ref-line bg-white px-2 min-[360px]:px-3 transition-shadow hover:shadow-md"
+            className="shrink-0 inline-flex h-11 min-[360px]:h-12 items-center justify-center rounded-xl border border-ref-line bg-white px-3 transition-shadow hover:shadow-md"
           >
-            <img src={IMAGES.dalePlusLogo} alt="DALE+ Benefícios" width={60} height={32} className="h-6 min-[360px]:h-7 w-auto" />
+            <img src={IMAGES.dalePlusLogo} alt="DALE+ Benefícios" width={70} height={34} className="h-7 min-[360px]:h-8 w-auto" />
           </a>
         </div>
       </div>
